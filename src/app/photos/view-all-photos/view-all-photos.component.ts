@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PhotosService } from '../photos.service';
+import { Photos } from '../photos';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-view-all-photos',

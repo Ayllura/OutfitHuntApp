@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ColoursService } from '../colours.service';
+import { Colours } from '../colours';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
