@@ -34,7 +34,7 @@ export class MaterialService {
   }
 
   getMaterial(id: number): Observable<Materials> {
-    return this.httpClient.get<Materials>(this.apiUrl + "/" + id + "/GetMaterials"); //return an observable
+    return this.httpClient.get<Materials>(this.apiUrl + "/" + id); //return an observable
   }
 
   getAllMaterial(): Observable<Materials[]> {
