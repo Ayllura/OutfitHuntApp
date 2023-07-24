@@ -26,7 +26,7 @@ export class BrandsService {
   }
 
 
-  updateProduct(id: number, brandsBody: any): Observable<Brands>{
+  updateBrands(id: number, brandsBody: any): Observable<Brands>{
     return this.httpClient.put<Brands>(this.apiUrl + "/" + id, brandsBody); //return an observable
   }
 
