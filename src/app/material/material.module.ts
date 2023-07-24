@@ -6,13 +6,15 @@ import { CreateMaterialComponent } from './create-material/create-material.compo
 import { ViewMaterialComponent } from './view-material/view-material.component';
 import { ViewAllMaterialComponent } from './view-all-material/view-all-material.component';
 import { FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
+import { UpdateMaterialComponent } from './update-material/update-material.component';
 
 @NgModule({
   declarations: [
     MaterialComponent,
     CreateMaterialComponent,
     ViewMaterialComponent,
-    ViewAllMaterialComponent
+    ViewAllMaterialComponent,
+    UpdateMaterialComponent
   ],
   imports: [
     CommonModule,
