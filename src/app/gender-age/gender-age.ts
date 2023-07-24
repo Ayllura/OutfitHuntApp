@@ -1,5 +1,5 @@
 export interface GenderAge {
-    "genderAgeId": number,
-    "gender": string,
-    "age": string,
+    "GenderAgeId": number,
+    "Gender": string,
+    "Age": string,
 }

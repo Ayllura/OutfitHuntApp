@@ -1,4 +1,4 @@
 export interface Photos {
-    "photoId": number,
+    "PhotoId": number,
     "Link": string,
 }

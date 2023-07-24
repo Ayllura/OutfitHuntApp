@@ -1,4 +1,4 @@
 export interface Colours {
-    "colourId": number,
-    "description": string,
+    "ColourId": number,
+    "Description": string,
 }
