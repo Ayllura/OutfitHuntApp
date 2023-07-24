@@ -1,8 +1,8 @@
+import { Component, OnInit } from '@angular/core';
 import { BrandsService } from '../brands.service';
 import { Brands } from '../brands';
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router'; // Import ActivatedRoute
 
 @Component({
   selector: 'app-update-brand',
@@ -15,7 +15,7 @@ export class UpdateBrandComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private service: BrandsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute // Inject ActivatedRoute
   ) {
     this.updateBrandForm = this.fb.group({
       brandId: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
@@ -25,12 +25,14 @@ export class UpdateBrandComponent implements OnInit {
 
   ngOnInit(): void {
     const brandIdFromRoute = +this.route.snapshot.paramMap.get('id');
-    this.service.getBrands(brandIdFromRoute).subscribe((brand: Brands) => {
-      this.updateBrandForm.patchValue({
-        brandId: brand.brandId,
-        name: brand.name
+    if (brandIdFromRoute !== null) {
+      this.service.getBrandById(brandIdFromRoute)?.subscribe((brand: Brands) => {
+        this.updateBrandForm.patchValue({
+          brandId: brand?.brandId,
+          name: brand?.name
+        });
       });
-    });
+    }
   }
 
   updateBrand() {
@@ -45,7 +47,6 @@ export class UpdateBrandComponent implements OnInit {
 
     this.service.updateBrands(brand.brandId, brand).subscribe(data => {
       console.log('Brand updated successfully:', data);
-      // You can perform any actions after updating the brand here.
     });
   }
 }

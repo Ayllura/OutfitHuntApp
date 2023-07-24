@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './create-brand.component.html',
   styleUrls: ['./create-brand.component.css']
 })
+
 export class CreateBrandComponent implements OnInit {
   createBrandForm: FormGroup;
 
@@ -32,7 +33,6 @@ export class CreateBrandComponent implements OnInit {
 
     this.service.createBrand(brand).subscribe(data => {
       console.log('Brand added successfully:', data);
-      // You can perform any actions after creating the brand here.
     });
   }
 }

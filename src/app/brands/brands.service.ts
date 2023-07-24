@@ -19,7 +19,6 @@ export class BrandsService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
-        // Adicione outros cabeçalhos, como autorização, se necessário.
       })
     };
     return this.httpClient.post<Brands>(this.apiUrl, brandsBody, httpOptions);
@@ -28,6 +27,10 @@ export class BrandsService {
 
   updateBrands(id: number, brandsBody: any): Observable<Brands>{
     return this.httpClient.put<Brands>(this.apiUrl + "/" + id, brandsBody); //return an observable
+  }
+
+  getBrandById(id: number): Observable<Brands> {
+    return this.httpClient.get<Brands>(`${this.apiUrl}/${id}`);
   }
 
   deleteBrands(id: number): Observable<Brands>{
