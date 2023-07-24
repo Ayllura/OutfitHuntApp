@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { StyleService } from '../style.service';
+import { Style } from '../style';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-view-all-style',

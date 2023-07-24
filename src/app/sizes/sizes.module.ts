@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { SizesRoutingModule } from './sizes-routing.module';
 import { SizesComponent } from './sizes.component';

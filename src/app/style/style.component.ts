@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { StyleService } from './style.service';
+import { Style } from './style';
 
 @Component({
   selector: 'app-style',

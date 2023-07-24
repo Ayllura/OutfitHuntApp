@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SizesService } from '../sizes.service';
+import { Sizes } from '../sizes';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-create-size',
