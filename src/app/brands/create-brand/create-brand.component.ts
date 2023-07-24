@@ -1,8 +1,7 @@
 import { BrandsService } from '../brands.service';
 import { Brands } from '../brands';
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-brand',
@@ -10,26 +9,30 @@ import { NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./create-brand.component.css']
 })
 export class CreateBrandComponent implements OnInit {
-  brandId = "0";
-  name = "";
+  createBrandForm: FormGroup;
 
-  constructor(private service: BrandsService) {
-
-  }
-
-  ngOnInit(): void {
-
-  }
-
-
-  createNewBrand(form: NgForm) {
-    let brand = {
-      brandId: form.value.brandId,
-      name: form.value.name,
-    };
-    this.service.createBrand(brand).subscribe(data => {
-      console.log('Produto adicionado com sucesso:', data);
+  constructor(private fb: FormBuilder, private service: BrandsService) {
+    this.createBrandForm = this.fb.group({
+      brandId: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      name: ['', Validators.required]
     });
+  }
 
+  ngOnInit(): void {}
+
+  createNewBrand() {
+    if (this.createBrandForm.invalid) {
+      return;
+    }
+
+    const brand: Brands = {
+      brandId: this.createBrandForm.value.brandId,
+      name: this.createBrandForm.value.name
+    };
+
+    this.service.createBrand(brand).subscribe(data => {
+      console.log('Brand added successfully:', data);
+      // You can perform any actions after creating the brand here.
+    });
   }
 }
