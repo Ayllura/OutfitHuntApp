@@ -11,21 +11,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ViewBrandsComponent implements OnInit{
   
-  brandId = "0";
+  brandIdString = "0";
   name = "";
   constructor(private activateRoute: ActivatedRoute, private service: BrandsService){
     
   }
-  numericBrandId = parseInt(this.brandId, 10);
+  brandId = parseInt(this.brandIdString, 10);
   
   ngOnInit(): void {
     this.activateRoute.params.subscribe(data => {
       this.brandId = data['id'];
     });
 
-    this.service.getBrands(this.numericBrandId).subscribe(data => {
-      this.numericBrandId = data['BrandId'];
-      this.name = data['Name'];
+    this.service.getBrands(this.brandId).subscribe(data => {
+      this.brandId = data['brandId'];
+      this.name = data['name'];
     });
 
   }

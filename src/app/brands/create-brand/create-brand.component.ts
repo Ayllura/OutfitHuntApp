@@ -24,8 +24,8 @@ export class CreateBrandComponent implements OnInit {
 
   createNewBrand(form: NgForm) {
     let brand = {
-      BrandId: form.value.brandId,
-      Name: form.value.name,
+      brandId: form.value.brandId,
+      name: form.value.name,
     };
     this.service.createBrand(brand).subscribe(data => {
       console.log('Produto adicionado com sucesso:', data);
