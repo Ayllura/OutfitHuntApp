@@ -22,7 +22,7 @@ export class CreateBrandComponent implements OnInit {
   }
 
 
-  createNewProduct(form: NgForm) {
+  createNewBrand(form: NgForm) {
     let brand = {
       BrandId: form.value.brandId,
       Name: form.value.name,

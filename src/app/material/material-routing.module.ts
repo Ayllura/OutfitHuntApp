@@ -5,7 +5,7 @@ import { CreateMaterialComponent } from './create-material/create-material.compo
 import { ViewMaterialComponent } from './view-material/view-material.component';
 import { ViewAllMaterialComponent } from './view-all-material/view-all-material.component'
 
-const routes: Routes = [{ path: '', component: MaterialComponent }
+const routes: Routes = [{ path: '', component: MaterialComponent },
 { path: 'create-material', component: CreateMaterialComponent },
 { path: 'view-material/:id', component: ViewMaterialComponent },
 { path: 'view-all-material', component: ViewAllMaterialComponent }
