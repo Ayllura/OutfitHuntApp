@@ -9,12 +9,12 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./view-all-material.component.css']
 })
 export class ViewAllMaterialComponent implements OnInit {
-  productList: Product[] = [] ;
-  constructor(private service: ProductsService){
+  materialList: Material[] = [] ;
+  constructor(private service: MaterialService){
   }
   ngOnInit(): void {
-  this.service.getAllProduct().subscribe(data => {
-  this.productList = data;
+  this.service.getAllMaterial().subscribe(data => {
+  this.materialList = data;
   });
   }
 }

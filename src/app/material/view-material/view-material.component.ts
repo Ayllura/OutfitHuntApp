@@ -10,25 +10,19 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./view-material.component.css']
 })
 export class ViewMaterialComponent implements OnInit {
-  productId = "0";
-  productName = "";
-  familyId = "";
-  ean13code = "";
-  obs = ""
-  constructor(private activateRoute: ActivatedRoute, private service: ProductsService){
+  MaterialId = 0;
+  Description = ""
+  constructor(private activateRoute: ActivatedRoute, private service: MaterialService) {
   }
   ngOnInit(): void {
-  this.activateRoute.params.subscribe(data => {
-  this.productId = data['id'];
-  });
-  this.service.getProduct(this.productId).subscribe(data => {
-    this.productId = data['productId'];
-this.productName = data['productName'];
-this.familyId = data['familyId'];
-this.ean13code = data['ean13code'];
-this.obs = data['obs'];
-});
-}
-getProduct(){
-}
+    this.activateRoute.params.subscribe(data => {
+      this.MaterialId = data['id'];
+    });
+    this.service.getMaterial(this.MaterialId).subscribe(data => {
+      this.MaterialId = data['MaterialId'];
+      this.Description = data['Description'];
+    });
+  }
+  getMaterial() {
+  }
 }
