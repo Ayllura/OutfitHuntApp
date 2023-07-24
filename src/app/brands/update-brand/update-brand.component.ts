@@ -41,14 +41,25 @@ export class UpdateBrandComponent implements OnInit {
     if (this.updateBrandForm.invalid) {
       return;
     }
-
+  
+    const brandId = this.updateBrandForm.value.brandId;
+    if (isNaN(brandId)) {
+      console.error('Invalid brandId:', brandId);
+      return;
+    }
+  
     const brand: Brands = {
-      brandId: this.updateBrandForm.value.brandId,
+      brandId: brandId,
       name: this.updateBrandForm.value.name
     };
-
-    this.service.updateBrands(this.brandId, brand).subscribe(data => {
-      console.log('Brand updated successfully:', data);
-    });
+  
+    this.service.updateBrands(brandId, brand).subscribe(
+      data => {
+        console.log('Brand updated successfully');
+      },
+      error => {
+        console.error('Error updating brand:', error);
+      }
+    );
   }
-}
+} 
