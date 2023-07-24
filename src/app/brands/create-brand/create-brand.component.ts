@@ -8,6 +8,28 @@ import { NgForm } from '@angular/forms';
   templateUrl: './create-brand.component.html',
   styleUrls: ['./create-brand.component.css']
 })
-export class CreateBrandComponent {
+export class CreateBrandComponent {implements OnInit {
+  brandId = "0";
+  name = "";
+
+  constructor(private service: BrandsService) {
+
+  }
+
+  ngOnInit(): void {
+
+  }
+
+
+  createNewProduct(form: NgForm) {
+    let brand = {
+      BrandId: form.value.brandId,
+      Name: form.value.name,
+    };
+    this.service.createBrand(brand).subscribe(data => {
+      console.log('Produto adicionado com sucesso:', data);
+    });
+
+  }
 
 }
