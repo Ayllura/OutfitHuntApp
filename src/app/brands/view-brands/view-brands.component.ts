@@ -18,10 +18,10 @@ export class ViewBrandsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe(params => {
-      this.searchId = +params['id']; // Convert the string ID to a number using the "+" operator
+      this.searchId = +params['id'];
       if (this.searchId !== undefined) {
         this.brandId = this.searchId;
-        this.getBrand(); // Corrected method name
+        this.getBrand();
       }
     });
   }
@@ -29,7 +29,7 @@ export class ViewBrandsComponent implements OnInit {
   searchById(): void {
     if (this.searchId !== undefined) {
       this.brandId = this.searchId;
-      this.getBrand(); // Corrected method name
+      this.getBrand();
     }
   }
 
