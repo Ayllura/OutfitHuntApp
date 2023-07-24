@@ -5,9 +5,7 @@ import { BrandsComponent } from './brands.component';
 import { CreateBrandComponent } from './create-brand/create-brand.component';
 import { ViewBrandsComponent } from './view-brands/view-brands.component';
 import { ViewAllBrandsComponent } from './view-all-brands/view-all-brands.component';
-import { FormsModule } from '@angular/forms';
-import { NgForm } from '@angular/forms';
-
+import { FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +17,8 @@ import { NgForm } from '@angular/forms';
   imports: [
     CommonModule,
     BrandsRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class BrandsModule { }
