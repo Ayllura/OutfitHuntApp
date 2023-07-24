@@ -1,14 +1,14 @@
-<form [formGroup]="createBrandForm" (submit)="createNewBrand()">
+<form [formGroup]="updateBrandForm" (submit)="updateBrand()">
     <div class="form-row">
       <div class="form-group mt-3">
-        <label for="inputCode">Brand ID</label>
+        <label for="inputCode">Brand Code</label>
         <input type="number" class="form-control" id="inputCode" placeholder="1" formControlName="brandId">
       </div>
       <div class="form-group mt-3">
         <label for="inputName">Brand Name</label>
         <input type="text" class="form-control" id="inputName" placeholder="Gucci" formControlName="name">
       </div>
-      <button type="submit" class="btn btn-primary mt-3">Create</button>
+      <button type="submit" class="btn btn-primary mt-3">Update</button>
     </div>
   </form>
   

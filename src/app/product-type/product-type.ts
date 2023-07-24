@@ -1,4 +1,4 @@
 export interface ProductType {
-    "TypeId": number,
-    "Description": string,
+    "typeId": number,
+    "description": string,
 }

@@ -1,5 +1,5 @@
 export interface Brands {
-    "BrandId": number,
-    "Name": string,
+    "brandId": number,
+    "name": string,
 }
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MaterialService } from './material.service';
-import { Material } from './material';
+import { Materials } from './material';
 
 @Component({
   selector: 'app-material',
