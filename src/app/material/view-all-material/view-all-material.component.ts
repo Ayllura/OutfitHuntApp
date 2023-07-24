@@ -8,6 +8,13 @@ import { NgForm } from '@angular/forms';
   templateUrl: './view-all-material.component.html',
   styleUrls: ['./view-all-material.component.css']
 })
-export class ViewAllMaterialComponent {
-
+export class ViewAllMaterialComponent implements OnInit {
+  productList: Product[] = [] ;
+  constructor(private service: ProductsService){
+  }
+  ngOnInit(): void {
+  this.service.getAllProduct().subscribe(data => {
+  this.productList = data;
+  });
+  }
 }

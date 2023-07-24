@@ -8,6 +8,21 @@ import { NgForm } from '@angular/forms';
   templateUrl: './create-material.component.html',
   styleUrls: ['./create-material.component.css']
 })
-export class CreateMaterialComponent {
-
+export class CreateMaterialComponent implements OnInit {
+  materialId = "0";
+  description = ""
+  
+  constructor(private service: MaterialService) {
+  }
+  ngOnInit(): void {
+  }
+  createNewMaterial(form: NgForm) {
+  let material = {
+  materialId: form.value.materialId,
+  description: form.value.description
+  };
+  this.service.createMaterial(material).subscribe(data => {
+  console.log(data);
+  });
+}
 }
