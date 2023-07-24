@@ -35,7 +35,7 @@ export class BrandsService {
   }
 
   getBrands(id: number): Observable<Brands>{
-    return this.httpClient.get<Brands>(this.apiUrl + "/" + id + "/GetBrand"); //return an observable
+    return this.httpClient.get<Brands>(this.apiUrl + "/" + id); //return an observable
   }
 
   getAllBrands(): Observable<Brands[]>{
