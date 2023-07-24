@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterialService } from '../material.service';
-import { Material } from '../material';
+import { Materials } from '../material';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./view-all-material.component.css']
 })
 export class ViewAllMaterialComponent implements OnInit {
-  materialList: Material[] = [] ;
+  materialList: Materials[] = [] ;
   constructor(private service: MaterialService){
   }
   ngOnInit(): void {

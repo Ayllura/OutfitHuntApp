@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterialService } from '../material.service';
-import { Material } from '../material';
+import { Materials } from '../material';
 import { NgForm } from '@angular/forms';
 
 @Component({

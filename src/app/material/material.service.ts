@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Material } from './material';
+import { Materials } from './material';
 import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -12,7 +12,7 @@ export class MaterialService {
     this.apiUrl = environment.apiUrl + "Materials";
   }
 
-  createMaterial(materialBody: any): Observable<Material> {
+  createMaterial(materialBody: any): Observable<Materials> {
     console.log(materialBody);
 
     const httpOptions = {
@@ -21,23 +21,23 @@ export class MaterialService {
         // Adicione outros cabeçalhos, como autorização, se necessário.
       })
     };
-    return this.httpClient.post<Material>(this.apiUrl, materialBody, httpOptions); //return an observable
+    return this.httpClient.post<Materials>(this.apiUrl, materialBody, httpOptions); //return an observable
   }
 
 
-  updateMaterial(id: number, materialBody: any): Observable<Material> {
-    return this.httpClient.put<Material>(this.apiUrl + "/" + id, materialBody); //return an observable
+  updateMaterial(id: number, materialBody: any): Observable<Materials> {
+    return this.httpClient.put<Materials>(this.apiUrl + "/" + id, materialBody); //return an observable
   }
 
-  deleteMaterial(id: number): Observable<Material> {
-    return this.httpClient.delete<Material>(this.apiUrl + "/" + id); //return an observable
+  deleteMaterial(id: number): Observable<Materials> {
+    return this.httpClient.delete<Materials>(this.apiUrl + "/" + id); //return an observable
   }
 
-  getMaterial(id: number): Observable<Material> {
-    return this.httpClient.get<Material>(this.apiUrl + "/" + id + "/GetMaterials"); //return an observable
+  getMaterial(id: number): Observable<Materials> {
+    return this.httpClient.get<Materials>(this.apiUrl + "/" + id + "/GetMaterials"); //return an observable
   }
 
-  getAllMaterial(): Observable<Material[]> {
-    return this.httpClient.get<Material[]>(this.apiUrl); //return an observable
+  getAllMaterial(): Observable<Materials[]> {
+    return this.httpClient.get<Materials[]>(this.apiUrl); //return an observable
   }
 }

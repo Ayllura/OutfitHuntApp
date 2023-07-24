@@ -1,4 +1,4 @@
-export interface Material {
-    "MaterialId": number,
-    "Description": string,
+export interface Materials {
+    "materialId": number,
+    "description": string
 }
