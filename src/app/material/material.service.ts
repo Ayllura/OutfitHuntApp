@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class MaterialService {
   apiUrl: string = "";
   constructor(private httpClient: HttpClient) {
-    this.apiUrl = environment.apiUrl + "Material";
+    this.apiUrl = environment.apiUrl + "Materials";
   }
 
   createMaterial(materialBody: any): Observable<Material> {
@@ -34,7 +34,7 @@ export class MaterialService {
   }
 
   getMaterial(id: number): Observable<Material> {
-    return this.httpClient.get<Material>(this.apiUrl + "/" + id + "/GetMaterial"); //return an observable
+    return this.httpClient.get<Material>(this.apiUrl + "/" + id + "/GetMaterials"); //return an observable
   }
 
   getAllMaterial(): Observable<Material[]> {
