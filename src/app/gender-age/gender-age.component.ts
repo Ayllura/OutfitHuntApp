@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GenderAgeService } from './gender-age.service';
+import { GenderAge } from './gender-age';
 
 @Component({
   selector: 'app-gender-age',
