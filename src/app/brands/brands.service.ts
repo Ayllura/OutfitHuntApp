@@ -7,13 +7,13 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
+export class BrandsService {
   apiUrl: string = "";
   constructor(private httpClient: HttpClient) { 
     this.apiUrl = environment.apiUrl + "Brands";
   }
 
-  createProduct(brandsBody: any): Observable<Brands>{
+  createBrand(brandsBody: any): Observable<Brands>{
     console.log(brandsBody);
 
     const httpOptions = {
@@ -30,15 +30,15 @@ export class ProductsService {
     return this.httpClient.put<Brands>(this.apiUrl + "/" + id, brandsBody); //return an observable
   }
 
-  deleteProduct(id: string): Observable<Brands>{
+  deleteBrands(id: number): Observable<Brands>{
     return this.httpClient.delete<Brands>(this.apiUrl + "/" + id); //return an observable
   }
 
-  getProduct(id: string): Observable<Brands>{
+  getBrands(id: number): Observable<Brands>{
     return this.httpClient.get<Brands>(this.apiUrl + "/" + id + "/GetBrand"); //return an observable
   }
 
-  getAllProduct(): Observable<Brands[]>{
+  getAllBrands(): Observable<Brands[]>{
     return this.httpClient.get<Brands[]>(this.apiUrl); //return an observable
   } 
 }

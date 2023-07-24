@@ -13,17 +13,18 @@ export class ViewBrandsComponent implements OnInit{
   
   brandId = "0";
   name = "";
-  constructor(private activateRoute: ActivatedRoute, private service: ProductsService){
+  constructor(private activateRoute: ActivatedRoute, private service: BrandsService){
     
   }
+  numericBrandId = parseInt(this.brandId, 10);
   
   ngOnInit(): void {
     this.activateRoute.params.subscribe(data => {
       this.brandId = data['id'];
     });
 
-    this.service.getProduct(this.brandId).subscribe(data => {
-      this.brandId = data['BrandId'];
+    this.service.getBrands(this.numericBrandId).subscribe(data => {
+      this.numericBrandId = data['BrandId'];
       this.name = data['Name'];
     });
 

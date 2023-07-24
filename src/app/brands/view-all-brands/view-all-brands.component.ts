@@ -8,6 +8,14 @@ import { NgForm } from '@angular/forms';
   templateUrl: './view-all-brands.component.html',
   styleUrls: ['./view-all-brands.component.css']
 })
-export class ViewAllBrandsComponent {
-
+export class ViewAllBrandsComponent implements OnInit {
+  brandList: Brands[] = [] ;
+  constructor(private service: BrandsService){
+    
+  }
+  ngOnInit(): void {
+    this.service.getAllBrands().subscribe(data => {
+        this.brandList = data;
+      });
+  }
 }
