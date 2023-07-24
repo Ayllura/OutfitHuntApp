@@ -6,6 +6,7 @@ import { ShopsComponent } from './shops.component';
 import { CreateShopComponent } from './create-shop/create-shop.component';
 import { ViewShopComponent } from './view-shop/view-shop.component';
 import { ViewAllShopComponent } from './view-all-shop/view-all-shop.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ViewAllShopComponent } from './view-all-shop/view-all-shop.component';
   ],
   imports: [
     CommonModule,
-    ShopsRoutingModule
+    ShopsRoutingModule,
+    FormsModule
   ]
 })
 export class ShopsModule { }

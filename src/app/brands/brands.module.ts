@@ -5,6 +5,8 @@ import { BrandsComponent } from './brands.component';
 import { CreateBrandComponent } from './create-brand/create-brand.component';
 import { ViewBrandsComponent } from './view-brands/view-brands.component';
 import { ViewAllBrandsComponent } from './view-all-brands/view-all-brands.component';
+import { FormsModule } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { ViewAllBrandsComponent } from './view-all-brands/view-all-brands.compon
   ],
   imports: [
     CommonModule,
-    BrandsRoutingModule
+    BrandsRoutingModule,
+    FormsModule
   ]
 })
 export class BrandsModule { }
