@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'style', loadChildren: () => import('./style/style.module').then(m => m.StyleModule) },
   { path: 'brands', loadChildren: () => import('./brands/brands.module').then(m => m.BrandsModule) },
   { path: 'productType', loadChildren: () => import('./product-type/product-type.module').then(m => m.ProductTypeModule) },
+  { path: '', redirectTo: 'brands', pathMatch: 'full' },
   { path: 'shops', loadChildren: () => import('./shops/shops.module').then(m => m.ShopsModule) }];
 
 @NgModule({
@@ -17,4 +18,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
