@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MaterialService } from '../material.service';
 import { Materials } from '../material';
 import { FormGroup, NgForm, FormControl } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-material',
@@ -12,7 +12,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class UpdateMaterialComponent implements OnInit {
   materialForm: FormGroup;
 
-  constructor(private service: MaterialService, private route: ActivatedRoute) {
+  constructor(private service: MaterialService, private route: ActivatedRoute, private router: Router) {
     this.materialForm = new FormGroup({
       materialId: new FormControl(''),
       description: new FormControl('')
@@ -45,5 +45,6 @@ export class UpdateMaterialComponent implements OnInit {
     this.service.updateMaterialDescription(materialId, materialPayload).subscribe(data => {
       console.log("Material updated:", data);
     });
+    this.router.navigate(['/material']);
   }
 }
