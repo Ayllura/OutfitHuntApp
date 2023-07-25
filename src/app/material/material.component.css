@@ -1,0 +1,16 @@
+.bi {
+    display: inline-block;
+    vertical-align: -0.125em;
+    fill: currentcolor;
+}
+
+.btn-info {
+    margin-top: 1em;
+    background-color:darkseagreen;
+    border-color: aliceblue;
+    color: aliceblue;
+}
+
+.container {
+    margin-top: 2em;
+}
