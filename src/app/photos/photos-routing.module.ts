@@ -13,9 +13,8 @@ const routes: Routes = [
   { path: 'create-photo', component: CreatePhotoComponent },
   { path: 'view-all-photos', component: ViewAllPhotosComponent },
   { path: 'view-photo/:id', component: ViewPhotoComponent },
-  { path: 'update-photo/:id', component: UpdatePhotoComponent },
+  { path: 'update-photo', component: UpdatePhotoComponent },
   { path: 'delete/photo/:id', component: DeletePhotoComponent }
-
 ];
 
 @NgModule({

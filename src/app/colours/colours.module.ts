@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { ColoursRoutingModule } from './colours-routing.module';
 import { ColoursComponent } from './colours.component';
 import { CreateColourComponent } from './create-colour/create-colour.component';
@@ -22,7 +22,8 @@ import { DeleteColourComponent } from './delete-colour/delete-colour.component';
   imports: [
     CommonModule,
     ColoursRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ColoursModule { }

@@ -21,8 +21,8 @@ export class ViewPhotoComponent implements OnInit {
       this.photoId = data['id'];
     });
     this.service.getPhoto(this.photoId).subscribe(data => {
-      this.photoId = data['PhotoId'];
-      this.link = data['Link'];
+      this.photoId = data['photoId'];
+      this.link = data['link'];
     });
   }
   getProduct() {

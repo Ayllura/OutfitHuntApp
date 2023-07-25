@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ViewColourComponent implements OnInit {
   colourId = 0;
-  description = "";
+  description = ""
 
   constructor(private activateRoute: ActivatedRoute, private service: ColoursService) {
   }
@@ -21,8 +21,8 @@ export class ViewColourComponent implements OnInit {
       this.colourId = data['id'];
     });
     this.service.getColour(this.colourId).subscribe(data => {
-      this.colourId = data['ColourId'];
-      this.description = data['Description'];
+      this.colourId = data['colourId'];
+      this.description = data['description'];
     });
   }
   getProduct() {

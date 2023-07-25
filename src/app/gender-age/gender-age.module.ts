@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { GenderAgeRoutingModule } from './gender-age-routing.module';
 import { GenderAgeComponent } from './gender-age.component';
 import { CreateGenderAgeComponent } from './create-gender-age/create-gender-age.component';
@@ -22,7 +22,8 @@ import { DeleteGenderAgeComponent } from './delete-gender-age/delete-gender-age.
   imports: [
     CommonModule,
     GenderAgeRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class GenderAgeModule { }

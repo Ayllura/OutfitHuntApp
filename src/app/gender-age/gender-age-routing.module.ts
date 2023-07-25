@@ -8,12 +8,12 @@ import { UpdateGenderAgeComponent } from './update-gender-age/update-gender-age.
 import { DeleteGenderAgeComponent } from './delete-gender-age/delete-gender-age.component';
 
 const routes: Routes = [
-{ path: '', component: GenderAgeComponent },
-{ path: 'create-gender-age', component: CreateGenderAgeComponent },
-{ path: 'view-all-gender-ages', component: ViewAllGenderAgesComponent },
-{ path: 'view-gender-age/:id', component: ViewGenderAgeComponent },
-{ path: 'update-gender-age/:id', component: UpdateGenderAgeComponent },
-{ path: 'delete/gender-age/:id', component: DeleteGenderAgeComponent }
+  { path: '', component: GenderAgeComponent },
+  { path: 'create-gender-age', component: CreateGenderAgeComponent },
+  { path: 'view-all-gender-ages', component: ViewAllGenderAgesComponent },
+  { path: 'view-gender-age/:id', component: ViewGenderAgeComponent },
+  { path: 'update-gender-age', component: UpdateGenderAgeComponent },
+  { path: 'delete/gender-age/:id', component: DeleteGenderAgeComponent }
 ];
 
 @NgModule({

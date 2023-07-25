@@ -22,9 +22,9 @@ export class ViewGenderAgeComponent implements OnInit {
       this.genderAgeId = data['id'];
     });
     this.service.getGenderAge(this.genderAgeId).subscribe(data => {
-      this.genderAgeId = data['GenderAgeId'];
-      this.gender = data['Gender'];
-      this.age = data['Age'];    
+      this.genderAgeId = data['genderAgeId'];
+      this.gender = data['gender'];
+      this.age = data['age'];    
     });
   }
   getProduct() {
