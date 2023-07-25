@@ -1,1 +1,18 @@
-<p>create-gender-age works!</p>
+<form (submit)="createGenderAge(createGenderAgeForm)" #createGenderAgeForm="ngForm">
+    <div class="form-row">
+        <div class="form-group mt-3">
+            <label for="inputCode">GenderAgeID</label>
+            <input type="number" class="form-control" id="inputCode" placeholder="ID" name="genderAgeId" ngModel>
+        </div>
+        <div class="form-group mt-3">
+            <label for="inputGender">Gender</label>
+            <input type="text" class="form-control" id="inputGender" placeholder="M, F, U" name="Gender" ngModel>
+        </div>
+        <div class="form-group mt-3">
+            <label for="inputAge">Age</label>
+            <input type="text" class="form-control" id="inputAge" placeholder="Age" name="Age" ngModel>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Create</button>
+        <div></div>
+    </div>
+</form>

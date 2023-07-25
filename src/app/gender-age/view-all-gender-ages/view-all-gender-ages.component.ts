@@ -8,6 +8,13 @@ import { NgForm } from '@angular/forms';
   templateUrl: './view-all-gender-ages.component.html',
   styleUrls: ['./view-all-gender-ages.component.css']
 })
-export class ViewAllGenderAgesComponent {
-
+export class ViewAllGenderAgesComponent implements OnInit {
+  genderAgeList: GenderAge[] = [];
+  constructor(private service: GenderAgeService) {
+  }
+  ngOnInit(): void {
+    this.service.getAllGenderAges().subscribe(data => {
+      this.genderAgeList = data;
+    });
+  }
 }

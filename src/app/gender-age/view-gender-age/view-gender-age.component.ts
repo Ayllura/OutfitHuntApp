@@ -9,6 +9,24 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './view-gender-age.component.html',
   styleUrls: ['./view-gender-age.component.css']
 })
-export class ViewGenderAgeComponent {
+export class ViewGenderAgeComponent implements OnInit {
+  genderAgeId = 0;
+  gender = "";
+  age = "";
 
-}
+  constructor(private activateRoute: ActivatedRoute, private service: GenderAgeService) {
+  }
+
+  ngOnInit(): void {
+    this.activateRoute.params.subscribe(data => {
+      this.genderAgeId = data['id'];
+    });
+    this.service.getGenderAge(this.genderAgeId).subscribe(data => {
+      this.genderAgeId = data['GenderAgeId'];
+      this.gender = data['Gender'];
+      this.age = data['Age'];    
+    });
+  }
+  getProduct() {
+  }
+} 
