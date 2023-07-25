@@ -24,10 +24,6 @@ export class MaterialService {
     return this.httpClient.post<Materials>(this.apiUrl, materialBody, httpOptions); //return an observable
   }
 
-/*   updateMaterial(id: number, materialBody: any): Observable<Materials> {
-    return this.httpClient.put<Materials>(this.apiUrl + "/" + id, materialBody); //return an observable
-  } */
-
   deleteMaterial(id: number): Observable<Materials> {
     return this.httpClient.delete<Materials>(this.apiUrl + "/" + id); //return an observable
   }
