@@ -9,6 +9,22 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './view-photo.component.html',
   styleUrls: ['./view-photo.component.css']
 })
-export class ViewPhotoComponent {
+export class ViewPhotoComponent implements OnInit {
+  photoId = 0;
+  link = "";
 
-}
+  constructor(private activateRoute: ActivatedRoute, private service: PhotosService) {
+  }
+
+  ngOnInit(): void {
+    this.activateRoute.params.subscribe(data => {
+      this.photoId = data['id'];
+    });
+    this.service.getPhoto(this.photoId).subscribe(data => {
+      this.photoId = data['PhotoId'];
+      this.link = data['Link'];
+    });
+  }
+  getProduct() {
+  }
+} 
