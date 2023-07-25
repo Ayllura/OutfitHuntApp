@@ -1,11 +1,11 @@
-<form (submit)="updateMaterial(updateMaterialForm)" #updateMaterialForm="ngForm">
+<form [formGroup]="materialForm" (ngSubmit)="updateMaterial()">
     <div class="form-row">
       <div class="form-group mt-3">
-        <label for="inputCode">Material Code</label>
-        <input type="number" class="form-control" id="inputCode" placeholder="0" formControlName="materialId">
+        <label for="materialId">Material Code</label>
+        <input type="number" class="form-control" id="materialId" placeholder="0" formControlName="materialId">
       </div>
       <div class="form-group mt-3">
-        <label for="inputName">Description</label>
+        <label for="description">Description</label>
         <input type="text" class="form-control" id="description" placeholder="Wool" formControlName="description">
       </div>
       <button type="submit" class="btn btn-primary mt-3">Update</button>
