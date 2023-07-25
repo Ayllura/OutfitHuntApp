@@ -6,6 +6,8 @@ import { PhotosComponent } from './photos.component';
 import { CreatePhotoComponent } from './create-photo/create-photo.component';
 import { ViewPhotoComponent } from './view-photo/view-photo.component';
 import { ViewAllPhotosComponent } from './view-all-photos/view-all-photos.component';
+import { DeletePhotoComponent } from './delete-photo/delete-photo.component';
+import { UpdatePhotoComponent } from './update-photo/update-photo.component';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { ViewAllPhotosComponent } from './view-all-photos/view-all-photos.compon
     PhotosComponent,
     CreatePhotoComponent,
     ViewPhotoComponent,
-    ViewAllPhotosComponent
+    ViewAllPhotosComponent,
+    DeletePhotoComponent,
+    UpdatePhotoComponent
   ],
   imports: [
     CommonModule,

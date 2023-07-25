@@ -6,6 +6,8 @@ import { ColoursComponent } from './colours.component';
 import { CreateColourComponent } from './create-colour/create-colour.component';
 import { ViewColourComponent } from './view-colour/view-colour.component';
 import { ViewAllColoursComponent } from './view-all-colours/view-all-colours.component';
+import { UpdateColourComponent } from './update-colour/update-colour.component';
+import { DeleteColourComponent } from './delete-colour/delete-colour.component';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { ViewAllColoursComponent } from './view-all-colours/view-all-colours.com
     ColoursComponent,
     CreateColourComponent,
     ViewColourComponent,
-    ViewAllColoursComponent
+    ViewAllColoursComponent,
+    UpdateColourComponent,
+    DeleteColourComponent
   ],
   imports: [
     CommonModule,
