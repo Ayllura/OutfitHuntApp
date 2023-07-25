@@ -13,15 +13,15 @@ export class BrandsService {
     this.apiUrl = environment.apiUrl + "Brands";
   }
 
-  createBrand(brandsBody: any): Observable<Brands>{
-    console.log(brandsBody);
+  createBrand(brandBody: any): Observable<Brands>{
+    console.log(brandBody);
 
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-    return this.httpClient.post<Brands>(this.apiUrl, brandsBody, httpOptions);
+    return this.httpClient.post<Brands>(this.apiUrl, brandBody, httpOptions);
   }
 
 

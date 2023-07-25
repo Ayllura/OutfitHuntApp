@@ -1,0 +1,37 @@
+.bi {
+    display: inline-block;
+    vertical-align: -0.125em;
+    fill: currentcolor;
+}
+
+.btn-info {
+    margin-top: 1em;
+    background-color:cornflowerblue;
+    border-color: aliceblue;
+    color: aliceblue;
+}
+
+.btn-info:hover {
+    background-color: blue;
+}
+
+.container {
+    margin-top: 2em;
+}
+
+.text-center {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mt-auto:last-of-type:hover {
+    background-color:crimson;
+}
+
+.mt-auto:nth-last-of-type(2):hover {
+    background-color:blue;
+}
+
+.mt-auto:first-of-type:hover {
+    background-color: darkgreen;
+}

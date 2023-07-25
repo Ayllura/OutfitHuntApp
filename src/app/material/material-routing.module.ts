@@ -10,7 +10,7 @@ const routes: Routes = [{ path: '', component: MaterialComponent },
 { path: 'create-material', component: CreateMaterialComponent },
 { path: 'view-material/:id', component: ViewMaterialComponent },
 { path: 'view-all-material', component: ViewAllMaterialComponent },
-{ path: 'update-material', component: UpdateMaterialComponent }
+{ path: 'update-material/:id', component: UpdateMaterialComponent }
 ];
 
 @NgModule({

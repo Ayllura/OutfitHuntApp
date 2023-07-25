@@ -7,12 +7,12 @@ import { ViewBrandsComponent } from './view-brands/view-brands.component';
 import { UpdateBrandComponent } from './update-brand/update-brand.component'; // Import the UpdateBrandComponent
 
 const routes: Routes = [
-  { path: '', component: BrandsComponent },
-  { path: 'create-brand', component: CreateBrandComponent },
-  { path: 'view-brands', component: ViewBrandsComponent },
-  { path: 'view-all-brands', component: ViewAllBrandsComponent },
-  { path: 'update/:id', component: UpdateBrandComponent }, // Define the 'update' route with the ':id' parameter
-];
+    { path: '', component: BrandsComponent },
+    { path: 'create-brand', component: CreateBrandComponent },
+    { path: 'view-all-brands', component: ViewAllBrandsComponent },
+    { path: 'view-brand/:id', component: ViewBrandsComponent }, // Update the route path here
+    { path: 'update/:id', component: UpdateBrandComponent },
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
