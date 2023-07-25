@@ -6,11 +6,32 @@
 
 .btn-info {
     margin-top: 1em;
-    background-color:darkseagreen;
+    background-color:cornflowerblue;
     border-color: aliceblue;
     color: aliceblue;
 }
 
+.btn-info:hover {
+    background-color: blue;
+}
+
 .container {
     margin-top: 2em;
+}
+
+.text-center {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mt-auto:last-of-type:hover {
+    background-color:crimson;
+}
+
+.mt-auto:nth-last-of-type(2):hover {
+    background-color:darkblue;
+}
+
+.mt-auto:first-of-type:hover {
+    background-color: darkgreen;
 }
