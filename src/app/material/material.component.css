@@ -29,7 +29,7 @@
 }
 
 .mt-auto:nth-last-of-type(2):hover {
-    background-color:darkblue;
+    background-color:blue;
 }
 
 .mt-auto:first-of-type:hover {
