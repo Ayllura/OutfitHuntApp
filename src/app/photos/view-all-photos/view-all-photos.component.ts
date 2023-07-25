@@ -8,6 +8,13 @@ import { NgForm } from '@angular/forms';
   templateUrl: './view-all-photos.component.html',
   styleUrls: ['./view-all-photos.component.css']
 })
-export class ViewAllPhotosComponent {
-
+export class ViewAllPhotosComponent implements OnInit {
+  photoList: Photos[] = [];
+  constructor(private service: PhotosService) {
+  }
+  ngOnInit(): void {
+    this.service.getAllPhotos().subscribe(data => {
+      this.photoList = data;
+    });
+  }
 }
