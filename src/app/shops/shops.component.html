@@ -1,7 +1,69 @@
 <h1>Shops</h1>
-<div class="list-group">
-<a href="shops/view-all-shops" class="list-group-item">View all Shops</a>
-<a href="shops/create-shops" class="list-group-item">Create Shop</a>
-<a href="product/update/shops" class="list-group-item">Update Shop</a>
-<a href="brands/delete/shops" class="list-group-item">Delete Shop</a>
-</div>
+<section>
+  <div class="row mt-5">
+    <div class="col-12">
+      <h4>Create a New Shop</h4>
+      <form (submit)="createNewShop()">
+        <div class="form-group">
+          <label for="shopId">Shop ID:</label>
+          <input class="form-control" id="shopId" type="number" [(ngModel)]="newShop.shopId" name="shopId" required />
+        </div>
+        <div class="form-group">
+          <label for="name">Shop Name:</label>
+          <input class="form-control" id="name" type="text" [(ngModel)]="newShop.name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="link">Shop Link:</label>
+          <input class="form-control" id="link" type="text" [(ngModel)]="newShop.link" name="link" required />
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Create Shop</button>
+      </form>
+    </div>
+  </div>
+</section>
+<br>
+<form [formGroup]="updateShopForm" (submit)="updateShop()">
+  <div class="form-row">
+    <div class="form-group mt-3">
+      <label for="inputCode">Shop ID</label>
+      <input type="number" class="form-control" id="inputCode" placeholder="1" formControlName="shopId">
+    </div>
+    <div class="form-group mt-3">
+      <label for="inputName">Shop Name</label>
+      <input type="text" class="form-control" id="inputName" placeholder="My Shop" formControlName="name">
+    </div>
+    <div class="form-group mt-3">
+      <label for="inputLink">Shop Link</label>
+      <input type="text" class="form-control" id="inputLink" placeholder="https://example.com" formControlName="link">
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Update</button>
+  </div>
+</form>
+<br>
+<section>
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+      <div class="col mb-5" *ngFor="let shop of shopList">
+        <div class="card h-100">
+          <!-- Shop image-->
+          <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+          <!-- Shop details-->
+          <div class="card-body p-4">
+            <div class="text-center">
+              <!-- Shop name-->
+              <h5 class="fw-bolder">{{ shop.shopId }} - {{ shop.name }}</h5>
+            </div>
+          </div>
+          <!-- Shop actions-->
+          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+            <div class="text-center">
+              <a class="btn btn-outline-dark mt-auto" [href]="'shops/view-shop/' + shop.shopId">View details</a>
+              <!-- Add the deleteShop method call on button click -->
+              <button class="btn btn-outline-danger mt-auto" (click)="deleteShop(shop.shopId)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
