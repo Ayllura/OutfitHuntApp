@@ -24,9 +24,6 @@ export class CreateColourComponent implements OnInit {
       description: form.value.description
     };
 
-    console.log('Colour:'+ (colour) );
-    console.log('Colour Id:'+ (colour.colourId) );
-    console.log('Colour description:'+ (colour.description) );
     this.service.createColour(colour).subscribe(data => {
       console.log(data);
       this.router.navigate(['/colours']);
