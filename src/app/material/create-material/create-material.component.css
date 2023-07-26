@@ -6,7 +6,7 @@
     color: white;
     background-color: #00455c;
     border: none;
-    margin-top: 5.5em;
+    margin-top: 3.5em;
 }
 
 .btn-info:hover {
@@ -20,4 +20,8 @@
 
 .btn-primary:hover {
     background-color: #00a4e0;
+}
+
+.form-row {
+    margin-top: 3em;
 }
