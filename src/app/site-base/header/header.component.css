@@ -1,0 +1,15 @@
+.bg-custom {
+    background-color: #0096bb;
+    color: #ffffff;
+  }
+  
+  .navbar.navbar-expand-lg.navbar-light.bg-light-custom {
+        background-color: #00455c;
+        font-weight: bolder;
+        color:white;
+  }
+  
+.bg-light-custom .navbar-brand,
+.bg-custom .text-white {
+  color: white;
+}
