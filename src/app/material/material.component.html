@@ -11,7 +11,7 @@
       <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
         By Name
       </button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <div ngbDropdownMenu class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownBasic1">
         <button ngbDropdownItem (click)="clearSelectedMaterial()">None</button>
         <!-- Loop through the materials and display them in the dropdown -->
         <button *ngFor="let material of materialList" ngbDropdownItem (click)="onMaterialSelect(material)">

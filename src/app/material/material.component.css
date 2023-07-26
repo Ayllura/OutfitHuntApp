@@ -43,3 +43,8 @@
 .byId {
 border-bottom: 2px solid blue;
 }
+
+.custom-dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
+}
