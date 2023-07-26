@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ShopsComponent implements OnInit {
   shopList: Shops[] = [];
-  newShop: Shops = {shopId:0, name:'', link: ''} // Create an instance of the Shops class for creating new shops
+  newShop: Shops = { shopId: 0, name: '', link: '' } // Create an instance of the Shops class for creating new shops
   updateShopForm: FormGroup;
   shopId: number = 0;
 
@@ -39,17 +39,45 @@ export class ShopsComponent implements OnInit {
     });
   }
 
-  deleteShop(shopId: number): void {
-    this.service.deleteShop(shopId).subscribe(() => {
-      console.log('Shop deleted successfully');
-      this.shopList = this.shopList.filter(shop => shop.shopId !== shopId);
-    }, error => {
-      console.error('Error deleting brand:', error);
-    });
-  }
 
-  createNewShop(): void {
-    if (this.newShop.shopId === 0 || this.newShop.name === ''||this.newShop.link === '') {
+// Add a class-level variable to store the last clicked shopId
+private lastClickedShopId: number | null = null;
+
+deleteShop(shopId: number): void {
+  if (this.lastClickedShopId === shopId) {
+    // If the user clicked the same delete button twice, show a warning alert
+    if (confirm('Are you sure you want to delete this Shop? Press OK to confirm.')) {
+      // Proceed with shop deletion if the user confirmed
+      this.service.deleteShop(shopId).subscribe(
+        () => {
+          alert('Shop deleted successfully');
+          this.shopList = this.shopList.filter(shop => shop.shopId !== shopId);
+          // Reset the lastClickedShopId to null for the next deletion
+          this.lastClickedShopId = null;
+        },
+        error => {
+          alert('Error deleting Shop.');
+          // Reset the lastClickedShopId in case of an error to allow reconfirmation
+          this.lastClickedShopId = null;
+        }
+      );
+    } else {
+      // If the user cancels the deletion, reset the lastClickedShopId
+      this.lastClickedShopId = null;
+    }
+  } else {
+    // If the user clicked a different delete button, set the lastClickedShopId to the current shopId
+    this.lastClickedShopId = shopId;
+    if (confirm('Are you sure you want to delete this Shop?')) {
+      return;
+    }
+  }
+}
+
+createNewShop(): void {
+    if (this.newShop.shopId <= 0 || this.newShop.name === '' || this.newShop.link === '') {
+      // Show an alert if brandId is invalid or name is empty
+      alert('Shop ID must be greater than 0 and Name and Link cannot be empty.');
       return;
     }
 
@@ -66,7 +94,7 @@ export class ShopsComponent implements OnInit {
 
     const shopId = this.updateShopForm.value.shopId;
     if (isNaN(shopId)) {
-      console.error('Invalid shopId:', shopId);
+      alert('Invalid shopId:'+ shopId);
       return;
     }
 
@@ -84,7 +112,7 @@ export class ShopsComponent implements OnInit {
         });
       },
       error => {
-        console.error('Error updating shop:', error);
+        alert('Error updating shop.');
       }
     );
   }
