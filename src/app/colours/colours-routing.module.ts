@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'create-colour', component: CreateColourComponent },
   { path: 'view-all-colours', component: ViewAllColoursComponent },
   { path: 'view-colour/:id', component: ViewColourComponent },
-  { path: 'update-colour', component: UpdateColourComponent },
+  { path: 'update-colour/:id', component: UpdateColourComponent },
   { path: 'delete-colour/:id', component: DeleteColourComponent }
 ];
 

@@ -14,8 +14,8 @@ export class UpdateColourComponent implements OnInit {
 
   constructor(private service: ColoursService, private route: ActivatedRoute, private router: Router) {
     this.coloursForm = new FormGroup({
-      colourId: new FormControl(''),
-      description: new FormControl('')
+      colourId: new FormControl('colourId'),
+      description: new FormControl('description')
     });
   }
   ngOnInit(): void {
@@ -31,10 +31,12 @@ export class UpdateColourComponent implements OnInit {
   }
 
   updateColour() {
+    const colourId = this.coloursForm.value.colourId; // Get the materialId from the form
     const newDescription = this.coloursForm.value.description; // Get the updated description from the form
 
     // Create the request payload with both materialId and description
     const colourPayload = {
+      colourId: colourId,
       description: newDescription
     };
 
