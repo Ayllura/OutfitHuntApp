@@ -1,7 +1,7 @@
 import { MaterialService } from '../material.service';
 import { Materials } from '../material';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-material',
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ViewMaterialComponent implements OnInit {
   materialId = 0;
   description = ""
-  constructor(private activateRoute: ActivatedRoute, private service: MaterialService) {
+  constructor(private activateRoute: ActivatedRoute, private service: MaterialService, private router: Router) {
   }
   ngOnInit(): void {
     this.activateRoute.params.subscribe(data => {
@@ -23,5 +23,9 @@ export class ViewMaterialComponent implements OnInit {
     });
   }
   getMaterial() {
+  }
+
+  backHome() {
+    this.router.navigate(['/material']);
   }
 }

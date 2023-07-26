@@ -2,13 +2,30 @@
     <div class="form-row">
         <div class="form-group mt-3">
             <label for="inputCode">Material Code</label>
-            <input type="text" class="form-control" id="inputCode" placeholder="Id" name="materialId" ngModel>
+            <input type="text" class="form-control" id="inputCode" placeholder="Id" name="materialId" [(ngModel)]="materialId">
         </div>
         <div class="form-group mt-3">
             <label for="inputName">Description</label>
-            <input type="text" class="form-control" id="inputDescription" placeholder="Description 
-    ..." name="description" ngModel>
+            <input type="text" class="form-control" id="inputDescription" placeholder="Description..." name="description" [(ngModel)]="description">
         </div>
         <button type="submit" class="btn btn-primary mt-3">Create</button>
     </div>
 </form>
+
+<ng-container *ngIf="showSuccessPopup">
+  <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+    Material criado com sucesso!
+    <button type="button" class="btn btn-outline-success" (click)="closeSuccessPopup()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</ng-container>
+
+<button type="button" class="btn btn-info" (click)="backHome()">
+    <span class="btn-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+      </svg>
+    </span>
+    Back
+  </button>

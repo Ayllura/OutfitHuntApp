@@ -9,6 +9,7 @@ import { FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
 import { UpdateMaterialComponent } from './update-material/update-material.component';
 import { DeleteMaterialComponent } from './delete-material/delete-material.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     MaterialRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialModule { }

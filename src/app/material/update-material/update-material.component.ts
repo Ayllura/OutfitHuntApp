@@ -44,8 +44,10 @@ export class UpdateMaterialComponent implements OnInit {
     // Send the PUT request to update the material
     this.service.updateMaterialDescription(materialId, materialPayload).subscribe(data => {
       console.log("Material updated:", data);
-      
     });
+  }
+
+  backHome() {
     this.router.navigate(['/material']);
   }
 }
