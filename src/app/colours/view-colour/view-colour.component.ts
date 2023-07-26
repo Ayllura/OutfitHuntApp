@@ -24,8 +24,7 @@ export class ViewColourComponent implements OnInit {
       this.colourId = data['colourId'];
       this.description = data['description'];
     });
-  }
-  getProduct() {
+  
   }
 } 
 

@@ -27,7 +27,13 @@ export class ColoursService {
   }
 
   updateColour(colourBody: any): Observable<Colours> {
-    return this.httpClient.put<Colours>(this.apiUrl, colourBody); //return an observable
+    console.log(colourBody);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.httpClient.put<Colours>(this.apiUrl, colourBody, httpOptions); //return an observable
   }
 
   deleteColour(id: number): Observable<Colours> {

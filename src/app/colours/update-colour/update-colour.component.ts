@@ -9,5 +9,25 @@ import { NgForm } from '@angular/forms';
   templateUrl: './update-colour.component.html',
   styleUrls: ['./update-colour.component.css']
 })
-export class UpdateColourComponent {
+export class UpdateColourComponent implements OnInit {
+  colourId = 0;
+  description = "";
+
+  constructor(private activateRoute: ActivatedRoute, private service: ColoursService) {
+  }
+  ngOnInit(): void {
+    this.activateRoute.params.subscribe(data => {
+      this.colourId=data['id']
+    });
+ 
+      }
+  updateColour(form: NgForm) {
+    let colour = {
+      colourId: form.value.colourId,
+      description: form.value.description,
+    };
+    this.service.createColour(colour).subscribe(data => {
+      console.log(data);
+    });
+  }
 } 
