@@ -65,6 +65,7 @@ export class ProductTypeComponent implements OnInit {
     if (isNaN(typeId)) {
       console.error('Invalid typeId:', typeId);
       return;
+
     }
 
     const productType: ProductType = {
@@ -76,7 +77,7 @@ export class ProductTypeComponent implements OnInit {
       data => {
         console.log('Product Type updated successfully');
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this.router.navigate(['/product-type']);
+          this.router.navigate(['/productType']);
         });
       },
       error => {

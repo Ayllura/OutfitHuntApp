@@ -74,7 +74,7 @@ export class ViewAllProductTypeComponent implements OnInit {
     });
   }
 
-  updateBrand() {
+  updateProductType() {
     if (this.updateProductTypeForm.invalid) {
       return;
     }
@@ -94,7 +94,7 @@ export class ViewAllProductTypeComponent implements OnInit {
       data => {
         console.log('Product Type updated successfully');
         // After successful update, navigate back to the same route with the updated brandId
-        this.router.navigate(['/product-type/view-product-type', typeId]);
+        this.router.navigate(['/productType/view-product-type', typeId]);
       },
       error => {
         console.error('Error updating Product Type:', error);

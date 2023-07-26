@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ShopsService } from './shops.service';
 import { Shops } from './shops';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-shops',
@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ShopsComponent implements OnInit {
   shopList: Shops[] = [];
-  newShop: Shops = { shopId: 0, name: '', link: ''};
+  newShop: Shops = {shopId:0, name:'', link: ''} // Create an instance of the Shops class for creating new shops
   updateShopForm: FormGroup;
   shopId: number = 0;
 
@@ -22,13 +22,14 @@ export class ShopsComponent implements OnInit {
     private router: Router
   ) {
     this.updateShopForm = this.fb.group({
-      brandId: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      shopId: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
       name: ['', Validators.required],
       link: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
+    // Implement the logic to fetch the list of shops and populate 'shopList' here
     this.getShopList();
   }
 
@@ -48,7 +49,7 @@ export class ShopsComponent implements OnInit {
   }
 
   createNewShop(): void {
-    if (this.newShop.shopId === 0 || this.newShop.name === ''|| this.newShop.link === '' ) {
+    if (this.newShop.shopId === 0 || this.newShop.name === ''||this.newShop.link === '') {
       return;
     }
 
@@ -63,7 +64,7 @@ export class ShopsComponent implements OnInit {
       return;
     }
 
-    const shopId = this.updateShopForm.value.brandId;
+    const shopId = this.updateShopForm.value.shopId;
     if (isNaN(shopId)) {
       console.error('Invalid shopId:', shopId);
       return;
@@ -77,13 +78,13 @@ export class ShopsComponent implements OnInit {
 
     this.service.updateShop(shopId, shop).subscribe(
       data => {
-        console.log('Shop updated successfully');
+        console.log('Brand updated successfully');
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this.router.navigate(['/shops']);
         });
       },
       error => {
-        console.error('Error updating brand:', error);
+        console.error('Error updating shop:', error);
       }
     );
   }
