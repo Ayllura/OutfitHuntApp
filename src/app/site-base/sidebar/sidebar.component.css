@@ -1,5 +1,11 @@
 .list-group .list-group-item {
-    background-color: #c5b9ff;
+    background-color: #00455c;
+    border-color: white;
+    color: white;
+  }
+
+  .list-group .list-group-item:hover {
+    background-color: #0096bb;
     border-color: white;
   }
   

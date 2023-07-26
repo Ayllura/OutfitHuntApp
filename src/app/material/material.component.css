@@ -6,13 +6,17 @@
 
 .btn-info {
     margin-top: 1em;
-    background-color:cornflowerblue;
+    background-color:#00a4e0;
     border-color: aliceblue;
     color: aliceblue;
 }
 
+.fw-bolder {
+    color:#00455c;
+}
+
 .btn-info:hover {
-    background-color: blue;
+    background-color: #00455c;
 }
 
 .container {
@@ -25,26 +29,44 @@
 }
 
 .mt-auto:last-of-type:hover {
-    background-color:crimson;
+    background-color:#ee6055;
 }
 
 .mt-auto:nth-last-of-type(2):hover {
-    background-color:blue;
+    background-color:#5aa9e6;
 }
 
 .mt-auto:first-of-type:hover {
-    background-color: darkgreen;
+    background-color: #60d394;
 }
 
 .btn-outline-primary {
     margin-top: 1em;
+    color:aliceblue;
+    border-color: aliceblue;
+    background-color:#00a4e0;
+}
+
+.btn-outline-primary:hover{
+    color:white;
+    border-color: white;
+    background-color: #00455c;
 }
 
 .byId {
-border-bottom: 2px solid blue;
+border-bottom: 2px solid #00455c;
 }
 
 .custom-dropdown-menu {
     max-height: 200px;
     overflow-y: auto;
+}
+
+.mt-auto {
+    border: none;
+    border-radius: 2em;
+}
+
+.card {
+    border: 2px solid #00a4e0;
 }
