@@ -9,10 +9,15 @@
     background-color:#00a4e0;
     border-color: aliceblue;
     color: aliceblue;
+    margin-left: 5%;
 }
 
 .fw-bolder {
     color:#00455c;
+}
+
+#title {
+    margin-left: 5%;
 }
 
 .btn-info:hover {
@@ -45,6 +50,7 @@
     color:aliceblue;
     border-color: aliceblue;
     background-color:#00a4e0;
+    margin-left: 3em;
 }
 
 .btn-outline-primary:hover{
@@ -69,4 +75,14 @@ border-bottom: 2px solid #00455c;
 
 .card {
     border: 2px solid #00a4e0;
+}
+
+.card-body {
+    border-bottom: 1px solid #00a4e0;
+    align-self: center;
+}
+
+.text-center {
+    margin-top:1em;
+    margin-bottom: 0em;
 }
