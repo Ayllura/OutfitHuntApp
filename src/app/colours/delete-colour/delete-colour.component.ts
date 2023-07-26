@@ -50,13 +50,4 @@ export class DeleteColourComponent implements OnInit {
       }
     );
   }
-
-  cancelDelete() {
-    // If the user cancels the delete action, you can navigate back to the material list page
-    this.router.navigate(['/colours']);
-  }
-
-
-
-
 }
