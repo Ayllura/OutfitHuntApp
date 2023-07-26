@@ -12,6 +12,7 @@ export class ColoursService {
   apiUrl: string = "";
   constructor(private httpClient: HttpClient) {
     this.apiUrl = environment.apiUrl + "Colours";
+    console.log('API URL'+this.apiUrl);
   }
 
   createColour(colourBody: any): Observable<Colours> {

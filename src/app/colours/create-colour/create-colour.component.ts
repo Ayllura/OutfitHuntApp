@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./create-colour.component.css']
 })
 export class CreateColourComponent implements OnInit {
-  colourId = "0";
+  colourId = 0;
   description = ""
 
   constructor(private service: ColoursService, private router: Router) {
@@ -21,8 +21,12 @@ export class CreateColourComponent implements OnInit {
   createNewColour(form: NgForm) {
     let colour = {
       colourId: form.value.colourId,
-      description: form.value.description,
+      description: form.value.description
     };
+
+    console.log('Colour:'+ (colour) );
+    console.log('Colour Id:'+ (colour.colourId) );
+    console.log('Colour description:'+ (colour.description) );
     this.service.createColour(colour).subscribe(data => {
       console.log(data);
       this.router.navigate(['/colours']);
