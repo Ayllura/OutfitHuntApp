@@ -1,0 +1,18 @@
+.container {
+    border-bottom: 1px solid #00a4e0;
+    color: #00455c;
+}
+
+.btn-icon {
+    color:white;
+}
+
+.btn-info {
+    color: white;
+    background-color: #00455c;
+    border: none;
+}
+
+.btn-info:hover {
+    background-color: #00a4e0;
+}

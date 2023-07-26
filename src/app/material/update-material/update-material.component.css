@@ -1,0 +1,27 @@
+.btn-icon {
+    color:white;
+}
+
+.btn-info {
+    color: white;
+    background-color: #00455c;
+    border: none;
+    margin-top: 8.5em;
+}
+
+.btn-info:hover {
+    background-color: #00a4e0;
+}
+
+.btn-primary {
+    background-color: #00455c;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #00a4e0;
+}
+
+.form-row {
+    margin-top:3em;
+}
