@@ -15,7 +15,6 @@ export class ColoursService {
   }
 
   createColour(colourBody: any): Observable<Colours> {
-    console.log(colourBody);
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -27,7 +26,7 @@ export class ColoursService {
   }
 
   updateColour(colourBody: any): Observable<Colours> {
-    console.log(colourBody);
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

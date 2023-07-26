@@ -13,11 +13,11 @@ export class DeleteColourComponent implements OnInit {
   colourIdToDelete: number | undefined;
   colourToDelete: Colours | undefined;
 
-  constructor(private activateRoute: ActivatedRoute, private router: Router, private service: ColoursService) {
+  constructor(private route: ActivatedRoute, private router: Router, private service: ColoursService) {
   }
 
   ngOnInit(): void {
-    this.activateRoute.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.colourIdToDelete = +params['id']; ;
 
       this.service.getColour(this.colourIdToDelete).subscribe(
@@ -25,14 +25,14 @@ export class DeleteColourComponent implements OnInit {
           this.colourToDelete = colour;
         },
         (error) => {
-          console.error('Error fetching material:', error);
+          console.error('Error fetching material: ', error);
         }
       );
     });
   }
 
   confirmDelete() {
-    if (!this.colourIdToDelete) {
+    if (this.colourIdToDelete == undefined) {
       console.log('Invalid colourIdToDelete.');
       return;
     }
@@ -40,12 +40,12 @@ export class DeleteColourComponent implements OnInit {
     // Perform the delete action here using the colourIdToDelete
     this.service.deleteColour(this.colourIdToDelete).subscribe(
       () => {
-        console.log('Colour with ID'+ (this.colourIdToDelete) +'deleted successfully.');
+        console.log('Colour with ID '+ (this.colourIdToDelete) +' deleted successfully.');
         // After successful deletion, you can navigate back to the material list page
-        this.router.navigate(['/colour']);
+        this.router.navigate(['/colours']);
       },
       (error) => {
-        console.error('Error deleting colour:', error);
+        console.error('Error deleting colour: ', error);
         // Handle any errors that may occur during deletion
       }
     );
@@ -53,7 +53,7 @@ export class DeleteColourComponent implements OnInit {
 
   cancelDelete() {
     // If the user cancels the delete action, you can navigate back to the material list page
-    this.router.navigate(['/colour']);
+    this.router.navigate(['/colours']);
   }
 
 
