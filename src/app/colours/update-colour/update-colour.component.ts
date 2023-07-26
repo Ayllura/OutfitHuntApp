@@ -42,10 +42,9 @@ export class UpdateColourComponent implements OnInit {
 
     // Send the PUT request to update the material
     this.service.updateColour(colourPayload).subscribe(data => {
-      console.log("Colour updated:", data);
-      
+      console.log("Colour updated:", data); 
     });
-    this.router.navigate(['/colours']);
+    this.router.navigate(['/colours/view-all-colours']);
   }
 }
 

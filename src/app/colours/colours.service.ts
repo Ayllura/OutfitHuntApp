@@ -12,7 +12,6 @@ export class ColoursService {
   apiUrl: string = "";
   constructor(private httpClient: HttpClient) {
     this.apiUrl = environment.apiUrl + "Colours";
-    console.log('API URL'+this.apiUrl);
   }
 
   createColour(colourBody: any): Observable<Colours> {
@@ -20,10 +19,9 @@ export class ColoursService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
-        // Adicione outros cabeçalhos, como autorização, se necessário.
       })
     };
-    return this.httpClient.post<Colours>(this.apiUrl, colourBody, httpOptions); //return an observable
+    return this.httpClient.post<Colours>(this.apiUrl, colourBody, httpOptions); //returns an observable
   }
 
   updateColour(colourBody: any): Observable<Colours> {
@@ -33,18 +31,18 @@ export class ColoursService {
         'Content-Type': 'application/json'
       })
     };
-    return this.httpClient.put<Colours>(this.apiUrl, colourBody, httpOptions); //return an observable
+    return this.httpClient.put<Colours>(this.apiUrl, colourBody, httpOptions); //returns an observable
   }
 
   deleteColour(id: number): Observable<Colours> {
-    return this.httpClient.delete<Colours>(this.apiUrl + "/" + id); //return an observable
+    return this.httpClient.delete<Colours>(this.apiUrl + "/" + id); //returns an observable
   }
 
   getColour(id: number): Observable<Colours> {
-    return this.httpClient.get<Colours>(this.apiUrl + "/" + id); //return an observable
+    return this.httpClient.get<Colours>(this.apiUrl + "/" + id); //returns an observable
   }
 
   getAllColours(): Observable<Colours[]> {
-    return this.httpClient.get<Colours[]>(this.apiUrl); //return an observable
+    return this.httpClient.get<Colours[]>(this.apiUrl); //returns an observable
   }
 }
