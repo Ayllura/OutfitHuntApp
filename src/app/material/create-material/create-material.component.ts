@@ -10,21 +10,28 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./create-material.component.css']
 })
 export class CreateMaterialComponent implements OnInit {
-  materialId = "0";
+  materialId: number | null = null;
   description = ""
-  
+
   constructor(private service: MaterialService, private router: Router) {
   }
   ngOnInit(): void {
   }
   createNewMaterial(form: NgForm) {
-  let material = {
-  materialId: form.value.materialId,
-  description: form.value.description
-  };
-  this.service.createMaterial(material).subscribe(data => {
-  console.log(data);
-  this.router.navigate(['/material']);
-  });
-}
+    const parsedMaterialId = parseInt(form.value.materialId, 10);
+
+    if (parsedMaterialId === 0 || isNaN(parsedMaterialId)) {
+      console.error("Invalid materialId");
+      return;
+    }
+
+    let material = {
+      materialId: form.value.materialId,
+      description: form.value.description
+    };
+    this.service.createMaterial(material).subscribe(data => {
+      console.log(data);
+      this.router.navigate(['/material']);
+    });
+  }
 }
