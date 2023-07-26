@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class ProductTypeService {
   apiUrl: string = "";
   constructor(private httpClient: HttpClient) {
-    this.apiUrl = environment.apiUrl + "ProductType"; // This will result in something like "http://localhost:7222/api/ProductType"
+    this.apiUrl = environment.apiUrl + "ProductTypes"; // This will result in something like "http://localhost:7222/api/ProductType"
   }
 
   createProductType(productTypeBody: any): Observable<ProductType> {

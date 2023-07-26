@@ -39,7 +39,7 @@ export class UpdateShopComponent implements OnInit {
     }
   }
 
-  updateBrand() {
+  updateShop() {
     if (this.updateShopForm.invalid) {
       return;
     }
