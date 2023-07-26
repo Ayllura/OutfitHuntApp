@@ -35,3 +35,11 @@
 .mt-auto:first-of-type:hover {
     background-color: darkgreen;
 }
+
+.btn-outline-primary {
+    margin-top: 1em;
+}
+
+.byId {
+border-bottom: 2px solid blue;
+}
