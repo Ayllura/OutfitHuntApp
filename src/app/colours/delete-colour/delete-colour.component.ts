@@ -20,12 +20,10 @@ export class DeleteColourComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.colourIdToDelete = +params['id']; ;
 
-      this.service.getColour(this.colourIdToDelete).subscribe(
-        (colour) => {
+      this.service.getColour(this.colourIdToDelete).subscribe( (colour) => {
           this.colourToDelete = colour;
         },
-        (error) => {
-          console.error('Error fetching material: ', error);
+        (error) => { console.error('Error fetching colour: ', error);
         }
       );
     });
