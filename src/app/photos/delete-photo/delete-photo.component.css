@@ -1,3 +1,11 @@
+#title {
+    margin: 5%;
+}
+
+.fw-bolder {
+    color:#00455c;
+}
+
 h2 {
     text-align: center;
     margin-top: -15%;
@@ -14,6 +22,9 @@ h2 {
 .btn {
     display: block;
     padding-inline: 30%;
-    margin-left: 3%;
+    margin-left: 5%;
     background-color: maroon;
+    border: 2px;
+    border-style: solid;
+    border-color: #00455c;
 }
