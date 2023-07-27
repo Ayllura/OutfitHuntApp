@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GenderAgeService } from '../gender-age.service';
 import { GenderAge } from '../gender-age';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-gender-age',
@@ -11,9 +12,9 @@ import { NgForm } from '@angular/forms';
 export class CreateGenderAgeComponent implements OnInit {
   genderAgeId = 0;
   gender = "";
-  age = "";
+  age = ""
 
-  constructor(private service: GenderAgeService) {
+  constructor(private service: GenderAgeService, private router: Router) {
   }
   ngOnInit(): void {
   }
@@ -25,6 +26,7 @@ export class CreateGenderAgeComponent implements OnInit {
     };
     this.service.createGenderAge(genderAge).subscribe(data => {
       console.log(data);
+      this.router.navigate(['/genderAge']);
     });
   }
 }
