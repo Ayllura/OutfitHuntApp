@@ -8,7 +8,7 @@ div.contentWrapper {
 .itemGrid {
     display: grid;
     text-align: center;
-    grid-auto-columns:40%;
+    grid-auto-columns:100%;
     grid-template-rows: 8fr 1fr;
     grid-row-gap: 1%;
     border-radius: 5px;
@@ -18,8 +18,6 @@ div.contentWrapper {
 .itemGrid div:first-child {
     background-color:#E5FDFF;
     padding: 10% 10% 10% 10%;
-    font-size: 75%;
-    font-weight: 700;
 }
 
 .itemGrid div:last-child {
