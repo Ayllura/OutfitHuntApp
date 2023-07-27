@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PhotosService } from '../photos.service';
 import { Photos } from '../photos';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-photo',
@@ -10,19 +11,20 @@ import { NgForm } from '@angular/forms';
 })
 export class CreatePhotoComponent implements OnInit {
   photoId = 0;
-  link = "";
+  link = ""
 
-  constructor(private service: PhotosService) {
+  constructor(private service: PhotosService, private router: Router) {
   }
   ngOnInit(): void {
   }
   createNewPhoto(form: NgForm) {
     let photo = {
       photoId: form.value.photoId,
-      link: form.value.link,
+      link: form.value.link
     };
     this.service.createPhoto(photo).subscribe(data => {
       console.log(data);
+      this.router.navigate(['/photos']);
     });
   }
 }

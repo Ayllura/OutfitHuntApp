@@ -1,1 +1,20 @@
-<p>update-photo works!</p>
+<h1 _ngcontent-ng-c1592491975="">Photos</h1>
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="./photos/view-all-photos">
+                Back
+            </a>
+        </li>
+    </ul>
+</nav>
+<form [formGroup]="photosForm" (ngSubmit)="updatePhoto()">
+  <div class="form-row">
+    <div class="form-group mt-3">
+      <input type="hidden" class="form-control" id="photoId" formControlName="photId">
+      <label for="link">New Link *</label>
+      <input type="text" class="form-control" id="link" formControlName="link">
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Update</button>
+  </div>
+</form>

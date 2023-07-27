@@ -1,0 +1,19 @@
+h2 {
+    text-align: center;
+    margin-top: -15%;
+    margin-bottom: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    border: 5px;
+    border-style: inset;
+    padding: 10%;
+    border-radius: 10px;
+    border-color: maroon;
+}
+
+.btn {
+    display: block;
+    padding-inline: 30%;
+    margin-left: 3%;
+    background-color: maroon;
+}

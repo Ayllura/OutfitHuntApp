@@ -1,14 +1,25 @@
+<h1 _ngcontent-ng-c1592491975="">Photos</h1>
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="./photos">
+                Back
+            </a>
+        </li>
+    </ul>
+</nav>
 <form (submit)="createNewPhoto(createPhotoForm)" #createPhotoForm="ngForm">
     <div class="form-row">
         <div class="form-group mt-3">
             <label for="inputID">PhotoID</label>
-            <input type="number" class="form-control" id="inputID" placeholder="ID" name="photoId" ngModel>
+            <input type="number" class="form-control" id="inputID" placeholder="ID" ng-required="inputID" name="photoId" ngModel>
         </div>
         <div class="form-group mt-3">
             <label for="inputLink">Photo URL</label>
-            <input type="text" class="form-control" id="inputLink" placeholder="URL" name="Link" ngModel>
+            <input type="text" class="form-control" id="inputLink" placeholder="URL" ng-required="inputLink"  name="Link" ngModel>
         </div>
-        <button type="submit" class="btn btn-primary mt-3">Create</button>
-        <div></div>
+        <div>
+            <button type="submit" class="btn btn-primary mt-3">Create</button>
+        </div>
     </div>
 </form>
