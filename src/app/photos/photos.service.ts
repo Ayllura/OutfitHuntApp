@@ -14,30 +14,34 @@ export class PhotosService {
   }
 
   createPhoto(photoBody: any): Observable<Photos> {
-    console.log(photoBody);
 
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
-        // Adicione outros cabeçalhos, como autorização, se necessário.
       })
     };
-    return this.httpClient.post<Photos>(this.apiUrl, photoBody, httpOptions); //return an observable
+    return this.httpClient.post<Photos>(this.apiUrl, photoBody, httpOptions); //returns an observable
   }
 
   updatePhoto(photoBody: any): Observable<Photos> {
-    return this.httpClient.put<Photos>(this.apiUrl, photoBody); //return an observable
+    
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.httpClient.put<Photos>(this.apiUrl, photoBody); //returns an observable
   }
 
   deletePhoto(id: number): Observable<Photos> {
-    return this.httpClient.delete<Photos>(this.apiUrl + "/" + id); //return an observable
+    return this.httpClient.delete<Photos>(this.apiUrl + "/" + id); //returns an observable
   }
 
   getPhoto(id: number): Observable<Photos> {
-    return this.httpClient.get<Photos>(this.apiUrl + "/" + id); //return an observable
+    return this.httpClient.get<Photos>(this.apiUrl + "/" + id); //returns an observable
   }
 
   getAllPhotos(): Observable<Photos[]> {
-    return this.httpClient.get<Photos[]>(this.apiUrl); //return an observable
+    return this.httpClient.get<Photos[]>(this.apiUrl); //returns an observable
   }
 }
