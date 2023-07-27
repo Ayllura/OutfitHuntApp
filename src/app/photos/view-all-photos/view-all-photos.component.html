@@ -14,7 +14,7 @@
     center">
             <div class="col mb-5" *ngFor="let p of photoList">
                 <div class="card h-100">
-                    <img class="card-img-top" src="https://static.pullandbear.net/2/photos//2023/V/0/1/p/4684/316/427/4684316427_2_6_8.jpg?t=1638527037114&imwidth=750" alt="Blue Jeans" />
+                    <img class="card-img-top" src="{{p.link}}" alt="Blue Jeans" />
                     <div class="card-body p-4">
                         <div class="text-center">
                             <h5 class="fw-bolder">ID:<br />{{p.photoId}}<br /> Description:<br />{{p.link}}

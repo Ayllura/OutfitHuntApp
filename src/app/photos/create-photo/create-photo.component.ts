@@ -22,6 +22,10 @@ export class CreatePhotoComponent implements OnInit {
       photoId: form.value.photoId,
       link: form.value.link
     };
+    console.log('PhotoId' + photo.photoId);
+    console.log('link' + photo.link)
+
+
     this.service.createPhoto(photo).subscribe(data => {
       console.log(data);
       this.router.navigate(['/photos']);
