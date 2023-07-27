@@ -1,3 +1,41 @@
 .btn-secondary {
-    margin-left: 1em;
+    margin: 0 5px;
+    font-size: 1.3em;
+}
+
+.modal-content {
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    align-content: center;
+}
+
+.modal-title {
+    font-size: 36px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2em;
+}
+
+.modal-body {
+    padding: 16px;
+}
+
+.btn-danger {
+    margin: 0 5px;
+    font-size: 1.3em;
+}
+
+.modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }

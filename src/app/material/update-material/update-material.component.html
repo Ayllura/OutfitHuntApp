@@ -9,6 +9,15 @@
     </div>
   </form>
 
+  <ng-container *ngIf="showSuccessPopup">
+    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+      Material updated successfully!
+      <button type="button" class="btn btn-outline-success" (click)="closeSuccessPopup()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+
   <button type="button" class="btn btn-info" (click)="backHome()">
     <span class="btn-icon">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">

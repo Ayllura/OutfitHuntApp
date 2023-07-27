@@ -3,6 +3,7 @@ import { MaterialService } from '../material.service';
 import { Materials } from '../material';
 import { FormGroup, NgForm, FormControl } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-update-material',
@@ -11,8 +12,9 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class UpdateMaterialComponent implements OnInit {
   materialForm: FormGroup;
+  showSuccessPopup = false;
 
-  constructor(private service: MaterialService, private route: ActivatedRoute, private router: Router) {
+  constructor(private service: MaterialService, private route: ActivatedRoute, private router: Router, private snackBar: MatSnackBar) {
     this.materialForm = new FormGroup({
       materialId: new FormControl(''),
       description: new FormControl('')
@@ -44,7 +46,15 @@ export class UpdateMaterialComponent implements OnInit {
     // Send the PUT request to update the material
     this.service.updateMaterialDescription(materialId, materialPayload).subscribe(data => {
       console.log("Material updated:", data);
+      this.showSuccessPopup = true;
+        setTimeout(() => {
+          this.showSuccessPopup = false;
+        }, 3000);
     });
+  }
+
+  closeSuccessPopup() {
+    this.showSuccessPopup = false;
   }
 
   backHome() {
