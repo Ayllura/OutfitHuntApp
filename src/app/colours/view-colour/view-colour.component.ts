@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ColoursService } from '../colours.service';
 import { Colours } from '../colours';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view-colour',
@@ -24,7 +24,7 @@ export class ViewColourComponent implements OnInit {
       this.colourId = data['colourId'];
       this.description = data['description'];
     });
-  
+
   }
-} 
+}
 

@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ViewPhotoComponent implements OnInit {
   photoId = 0;
-  link = "";
+  link = ""
 
   constructor(private activateRoute: ActivatedRoute, private service: PhotosService) {
   }
@@ -24,7 +24,5 @@ export class ViewPhotoComponent implements OnInit {
       this.photoId = data['photoId'];
       this.link = data['link'];
     });
-  }
-  getProduct() {
   }
 } 
