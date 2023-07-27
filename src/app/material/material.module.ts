@@ -5,7 +5,7 @@ import { MaterialComponent } from './material.component';
 import { CreateMaterialComponent } from './create-material/create-material.component';
 import { ViewMaterialComponent } from './view-material/view-material.component';
 import { ViewAllMaterialComponent } from './view-all-material/view-all-material.component';
-import { FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdateMaterialComponent } from './update-material/update-material.component';
 import { DeleteMaterialComponent } from './delete-material/delete-material.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';

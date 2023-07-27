@@ -1,5 +1,5 @@
 .btn-icon {
-    color:white;
+    color: white;
 }
 
 .btn-info {
@@ -24,4 +24,16 @@
 
 .form-row {
     margin-top: 3em;
+}
+
+.btn-outline-success {
+    border-radius: 0.5em;
+    margin-left: 0.5em;
+    padding: 0 10px;
+}
+
+.alert-success {
+    max-width: 29%;
+    padding: 10px 5px;
+    padding-left: 10px;
 }
