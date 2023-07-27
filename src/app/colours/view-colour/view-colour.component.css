@@ -16,6 +16,7 @@ div.contentWrapper {
 .itemGrid {
     display: grid;
     text-align: center;
+    color: #00455c;
     grid-auto-columns:30%;
     grid-template-rows: 3fr 1fr;
     grid-row-gap: 5%;

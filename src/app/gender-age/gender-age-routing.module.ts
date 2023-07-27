@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'create-gender-age', component: CreateGenderAgeComponent },
   { path: 'view-all-gender-ages', component: ViewAllGenderAgesComponent },
   { path: 'view-gender-age/:id', component: ViewGenderAgeComponent },
-  { path: 'update-gender-age', component: UpdateGenderAgeComponent },
+  { path: 'update-gender-age/:id', component: UpdateGenderAgeComponent },
   { path: 'delete/gender-age/:id', component: DeleteGenderAgeComponent }
 ];
 

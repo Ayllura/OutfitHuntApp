@@ -10,6 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ViewAllGenderAgesComponent implements OnInit {
   genderAgeList: GenderAge[] = [];
+
   constructor(private service: GenderAgeService) {
   }
   ngOnInit(): void {
