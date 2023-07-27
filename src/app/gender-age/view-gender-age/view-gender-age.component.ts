@@ -27,6 +27,4 @@ export class ViewGenderAgeComponent implements OnInit {
       this.age = data['age'];    
     });
   }
-  getProduct() {
-  }
 } 
