@@ -7,8 +7,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class GenderAgeService {
   apiUrl: string = "";
+
   constructor(private httpClient: HttpClient) {
     this.apiUrl = environment.apiUrl + "GenderAges";
   }
@@ -16,7 +18,6 @@ export class GenderAgeService {
   createGenderAge(genderAgeBody: any): Observable<GenderAge> {
 
     const httpOptions = {
-
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })

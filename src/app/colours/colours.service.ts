@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 
 export class ColoursService {
   apiUrl: string = "";
+
   constructor(private httpClient: HttpClient) {
     this.apiUrl = environment.apiUrl + "Colours";
   }
