@@ -16,10 +16,11 @@ export class DeleteMaterialComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private materialService: MaterialService) { }
 
   ngOnInit(): void {
+    // Get the materialId to delete from the route parameter
     this.route.params.subscribe(params => {
-      this.materialIdToDelete = +params['id']; // Assuming the route parameter is named 'id'
+      this.materialIdToDelete = +params['id'];
 
-      // Fetch the material details using the materialIdToDelete
+      // Fetch the material to delete based on the materialId
       this.materialService.getMaterial(this.materialIdToDelete).subscribe(
         (material) => {
           this.materialToDelete = material;
@@ -31,28 +32,29 @@ export class DeleteMaterialComponent implements OnInit {
     });
   }
 
+  // Function to confirm the deletion of the material
   confirmDelete() {
+    // Check if the materialId to delete is valid
     if (!this.materialIdToDelete) {
       console.log('Invalid materialIdToDelete.');
       return;
     }
 
-    // Perform the delete action here using the materialIdToDelete
+    // Call the service to delete the material, subscribe to the response
     this.materialService.deleteMaterial(this.materialIdToDelete).subscribe(
       () => {
         console.log(`Material with ID ${this.materialIdToDelete} deleted successfully.`);
-        // After successful deletion, you can navigate back to the material list page
+        // Navigate back to the 'material' route after successful deletion
         this.router.navigate(['/material']);
       },
       (error) => {
         console.error('Error deleting material:', error);
-        // Handle any errors that may occur during deletion
       }
     );
   }
 
+  // Function to cancel the deletion and navigate back to the 'material' route
   cancelDelete() {
-    // If the user cancels the delete action, you can navigate back to the material list page
     this.router.navigate(['/material']);
   }
 }
