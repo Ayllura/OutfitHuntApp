@@ -18,4 +18,17 @@ export class ViewAllGenderAgesComponent implements OnInit {
       this.genderAgeList = data;
     });
   }
+
+  genderToText(gender: string): string {
+    switch (gender) {
+      case "F":
+        return "Female";
+      case "M":
+        return "Male";
+      case "U":
+        return "Unisex";
+      default:
+        return "";
+    }
+  }
 }
