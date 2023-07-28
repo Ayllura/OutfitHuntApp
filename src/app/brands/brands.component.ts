@@ -29,7 +29,7 @@ export class BrandsComponent implements OnInit {
     // Initialize the search form
     this.searchForm = this.fb.group({
       name: ['', Validators.required]
-    });
+    });    
   }
 
   ngOnInit(): void {
@@ -150,19 +150,21 @@ export class BrandsComponent implements OnInit {
       alert('Invalid search form data. Please enter a name to search.');
       return;
     }
-
+  
     const nameToSearch = this.searchForm.get('name')?.value;
+  
     // Filter the brandList based on the name input
     this.filteredBrandList = this.brandList.filter(
       brand => brand.name.toLowerCase().includes(nameToSearch.toLowerCase())
     );
 
+  
     // Check if there are no results
     if (this.filteredBrandList.length === 0) {
       alert('No brands found for the entered name.');
     }
   }
-
+  
   resetSearch(): void {
     this.searchForm.reset();
     // Reset the filteredBrandList to show all brands again

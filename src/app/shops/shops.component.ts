@@ -39,7 +39,8 @@ export class ShopsComponent implements OnInit {
 
   getShopList(): void {
     this.service.getAllShops().subscribe(data => {
-      this.shopList = data;
+      this.shopList = data
+      this.filteredShopList = [...this.shopList];;
     });
   }
 
@@ -141,23 +142,23 @@ export class ShopsComponent implements OnInit {
     }
   }
   // Add a new method for searching by name
-  searchByName(): void {
-    if (this.searchForm.invalid) {
-      alert('Invalid search form data. Please enter a name to search.');
-      return;
-    }
-
-    const nameToSearch = this.searchForm.get('name')?.value;
-    // Filter the shopList based on the name input
-    this.filteredShopList = this.shopList.filter(
-      shop => shop.name.toLowerCase().includes(nameToSearch.toLowerCase())
-    );
-
-    // Check if there are no results
-    if (this.filteredShopList.length === 0) {
-      alert('No shops found for the entered name.');
-    }
+searchByName(): void {
+  if (this.searchForm.invalid) {
+    alert('Invalid search form data. Please enter a name to search.');
+    return;
   }
+
+  const nameToSearch = this.searchForm.value.name;
+  // Filter the shopList based on the name input
+  this.filteredShopList = this.shopList.filter(
+    shop => shop.name.toLowerCase().trim().includes(nameToSearch.toLowerCase().trim())
+  );
+
+  // Check if there are no results
+  if (this.filteredShopList.length === 0) {
+    alert('No shops found for the entered name.');
+  }
+}
 
   resetSearch(): void {
     this.searchForm.reset();
