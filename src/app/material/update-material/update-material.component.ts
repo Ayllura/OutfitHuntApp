@@ -14,7 +14,6 @@ export class UpdateMaterialComponent implements OnInit {
   showSuccessPopup = false;
 
   constructor(private service: MaterialService, private route: ActivatedRoute, private router: Router, private snackBar: MatSnackBar) {
-    // Initialize the form group with the form controls
     this.materialForm = new FormGroup({
       materialId: new FormControl(''),
       description: new FormControl('')
@@ -22,10 +21,9 @@ export class UpdateMaterialComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Get the 'id' parameter from the route and fetch the material based on it
     this.route.params.subscribe((params: Params) => {
       const materialId = +params['id'];
-      // Fetch material data and populate the form with the retrieved values
+
       this.service.getMaterial(materialId).subscribe(material => {
         this.materialForm.patchValue({
           materialId: material.materialId,
@@ -35,9 +33,7 @@ export class UpdateMaterialComponent implements OnInit {
     });
   }
 
-  // Function to update the material details
   updateMaterial() {
-    // Get the materialId and new description from the form
     const materialId = this.materialForm.value.materialId;
     const newDescription = this.materialForm.value.description.trim();
 
@@ -46,26 +42,20 @@ export class UpdateMaterialComponent implements OnInit {
       return;
     }
   
-    // Fetch all existing materials to perform the validation
     this.service.getAllMaterial().subscribe(
       materials => {
-        // Check if the entered description already exists in the list of materials
         if (materials.some(material => material.description === newDescription && material.materialId !== materialId)) {
           alert('Description already exists.');
           return;
         }
   
-        // If the description doesn't exist or is the same as the original, proceed to update the material
-        // Create the payload to update the material
         const materialPayload = {
           materialId: materialId,
           description: newDescription
         };
   
-        // Call the service to update the material description, subscribe to the response
         this.service.updateMaterialDescription(materialId, materialPayload).subscribe(data => {
           console.log("Material updated:", data);
-          // Show success popup and hide it after 3 seconds
           this.showSuccessPopup = true;
           setTimeout(() => {
             this.showSuccessPopup = false;
@@ -78,12 +68,10 @@ export class UpdateMaterialComponent implements OnInit {
     );
   }
 
-  // Function to close the success popup
   closeSuccessPopup() {
     this.showSuccessPopup = false;
   }
 
-  // Function to navigate back to the 'material' route
   backHome() {
     this.router.navigate(['/material']);
   }

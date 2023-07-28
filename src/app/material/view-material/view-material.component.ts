@@ -14,20 +14,16 @@ export class ViewMaterialComponent implements OnInit {
   constructor(private activateRoute: ActivatedRoute, private service: MaterialService, private router: Router) {
   }
   ngOnInit(): void {
-    // Subscribe to the route parameters to get the materialId from the URL
     this.activateRoute.params.subscribe(data => {
       this.materialId = data['id'];
     });
 
-    // Fetch the material data based on the materialId from the service
     this.service.getMaterial(this.materialId).subscribe(data => {
-      // Update the component properties with the retrieved material data
       this.materialId = data['materialId'];
       this.description = data['description'];
     });
   }
 
-  // Function to navigate back to the 'material' route
   backHome() {
     this.router.navigate(['/material']);
   }

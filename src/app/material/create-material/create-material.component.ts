@@ -27,7 +27,7 @@ export class CreateMaterialComponent {
     // Fetch all existing materials to perform the validations
     this.service.getAllMaterial().subscribe(
       materials => {
-        // Check if the entered material ID already exists in the list of materials
+
         if (materials.some(material => material.materialId === parsedMaterialId)) {
           alert('Material ID already exists.');
           return;
@@ -39,13 +39,11 @@ export class CreateMaterialComponent {
           return;
         }
   
-        // Check if the entered description already exists in the list of materials
         if (materials.some(material => material.description === form.value.description)) {
           alert('Description already exists.');
           return;
         }
   
-        // If both validations pass, create the material
         let material = {
           materialId: form.value.materialId,
           description: form.value.description
