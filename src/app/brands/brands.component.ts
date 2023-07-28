@@ -88,6 +88,7 @@ export class BrandsComponent implements OnInit {
     // Method to update an existing brand
 
     if (this.updateBrandForm.invalid) {
+      alert('Invalid form data. Please fill all required fields.');
       return;
     }
 

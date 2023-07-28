@@ -15,7 +15,6 @@ export class ShopsComponent implements OnInit {
   filteredShopList: Shops[] = []; // An array to store the filtered shops based on search criteria
   newShop: Shops = { shopId: 0, name: '', link: '' }; // Create an instance of the Shops class for creating new shops
   updateShopForm: FormGroup; // Form group for updating shop details
-  shopId: number = 0; // The ID of the current shop (used during updates)
   searchForm: FormGroup; // Form group for searching shops by name
 
   constructor(
@@ -64,8 +63,8 @@ export class ShopsComponent implements OnInit {
     const newLink = this.newShop.link;
 
     // Checking if a shop with the same name or link already exists (excluding the current shop being created)
-    const existingShopWithSameName = this.shopList.find(shop => shop.name === newName && shop.shopId !== this.newShop.shopId);
-    const existingShopWithSameLink = this.shopList.find(shop => shop.link === newLink && shop.shopId !== this.newShop.shopId);
+    const existingShopWithSameName = this.shopList.find(shop => shop.name === newName || shop.shopId !== this.newShop.shopId);
+    const existingShopWithSameLink = this.shopList.find(shop => shop.link === newLink || shop.shopId !== this.newShop.shopId);
 
     if (existingShopWithSameName || existingShopWithSameLink) {
       alert('A shop with the same Name or Link already exists. Please choose a different Name or Link.');

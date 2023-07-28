@@ -6,8 +6,8 @@
       <h4>Search by Name</h4>
       <form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="form-length">
         <div class="form-group">
-          <label for="searchDescription">Enter Name:</label>
-          <input class="form-control" id="searchByName" type="text" (input)="searchByName()" formControlName="name" required />
+          <label for="searchbyName">Enter Name:</label>
+          <input class="form-control" id="searchByName" type="text" formControlName="name" required />
         </div>
         <div class="d-flex justify-content-center">
           <button type="button" class="btn btn-secondary ml-2" (click)="resetSearch()">Reset</button>
@@ -22,7 +22,7 @@
     <div class="col-lg-6 col-md-8">
       <h4>Create a New Shop</h4>
       <form (submit)="createNewShop()" class="form-length">
-        <div class="form-group">
+          <div class="form-group">
           <label for="shopId">Shop ID:</label>
           <input class="form-control" id="shopId" type="number" formControlName="shopId" required />
         </div>
@@ -42,6 +42,7 @@
   </div>
 </section>
 
+
 <section class="mt-5">
   <div class="row justify-content-center">
     <div class="col-lg-6 col-md-8">
@@ -57,7 +58,8 @@
         </div>
         <div class="form-group mt-3">
           <label for="inputLink">Shop Link</label>
-          <input type="text" class="form-control" id="inputLink" placeholder="https://example.com" formControlName="link">
+          <input type="text" class="form-control" id="inputLink" placeholder="https://example.com"
+            formControlName="link">
         </div>
         <div class="d-flex justify-content-center">
           <button type="submit" class="btn btn-primary mt-3">Update</button>
