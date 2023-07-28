@@ -44,6 +44,7 @@ export class DeleteColourComponent implements OnInit {
       },
       (error) => {
         console.error('Error deleting colour: ', error);
+        alert(error)
         // Handle any errors that may occur during deletion
       }
     );
