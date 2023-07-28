@@ -39,23 +39,43 @@ export class UpdateMaterialComponent implements OnInit {
   updateMaterial() {
     // Get the materialId and new description from the form
     const materialId = this.materialForm.value.materialId;
-    const newDescription = this.materialForm.value.description;
+    const newDescription = this.materialForm.value.description.trim();
 
-    // Create the payload to update the material
-    const materialPayload = {
-      materialId: materialId,
-      description: newDescription
-    };
-
-    // Call the service to update the material description, subscribe to the response
-    this.service.updateMaterialDescription(materialId, materialPayload).subscribe(data => {
-      console.log("Material updated:", data);
-      // Show success popup and hide it after 3 seconds
-      this.showSuccessPopup = true;
-      setTimeout(() => {
-        this.showSuccessPopup = false;
-      }, 3000);
-    });
+    if (newDescription.length === 0) {
+      alert('Description cannot be empty.');
+      return;
+    }
+  
+    // Fetch all existing materials to perform the validation
+    this.service.getAllMaterial().subscribe(
+      materials => {
+        // Check if the entered description already exists in the list of materials
+        if (materials.some(material => material.description === newDescription && material.materialId !== materialId)) {
+          alert('Description already exists.');
+          return;
+        }
+  
+        // If the description doesn't exist or is the same as the original, proceed to update the material
+        // Create the payload to update the material
+        const materialPayload = {
+          materialId: materialId,
+          description: newDescription
+        };
+  
+        // Call the service to update the material description, subscribe to the response
+        this.service.updateMaterialDescription(materialId, materialPayload).subscribe(data => {
+          console.log("Material updated:", data);
+          // Show success popup and hide it after 3 seconds
+          this.showSuccessPopup = true;
+          setTimeout(() => {
+            this.showSuccessPopup = false;
+          }, 3000);
+        });
+      },
+      error => {
+        console.error(error);
+      }
+    );
   }
 
   // Function to close the success popup

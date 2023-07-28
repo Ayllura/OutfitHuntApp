@@ -17,33 +17,52 @@ export class CreateMaterialComponent {
   constructor(private service: MaterialService, private router: Router, private snackBar: MatSnackBar) {
   }
 
-  // Function to create a new material based on the form input
   createNewMaterial(form: NgForm) {
-    // Parse materialId to an integer
     const parsedMaterialId = parseInt(form.value.materialId, 10);
-
-    // Check if the parsed materialId is valid (not zero and a valid number)
-    if (parsedMaterialId === 0 || isNaN(parsedMaterialId)) {
-      console.error("Invalid materialId");
+    if (parsedMaterialId <= 0 || isNaN(parsedMaterialId)) {
+      alert('Material ID must be greater than 0 and cannot be empty.');
       return;
     }
+  
+    // Fetch all existing materials to perform the validations
+    this.service.getAllMaterial().subscribe(
+      materials => {
+        // Check if the entered material ID already exists in the list of materials
+        if (materials.some(material => material.materialId === parsedMaterialId)) {
+          alert('Material ID already exists.');
+          return;
+        }
 
-    // Create an object representing the material
-    let material = {
-      materialId: form.value.materialId,
-      description: form.value.description
-    };
-
-    // Call the service to create the material, subscribe to the response
-    this.service.createMaterial(material).subscribe(
-      data => {
-        console.log(data);
-        // Show success popup and hide it after 3 seconds
-        this.showSuccessPopup = true;
-        setTimeout(() => {
-          this.showSuccessPopup = false;
-        }, 3000);
-
+        const trimmedDescription = form.value.description.trim();
+        if (trimmedDescription.length === 0) {
+          alert('Description cannot be empty.');
+          return;
+        }
+  
+        // Check if the entered description already exists in the list of materials
+        if (materials.some(material => material.description === form.value.description)) {
+          alert('Description already exists.');
+          return;
+        }
+  
+        // If both validations pass, create the material
+        let material = {
+          materialId: form.value.materialId,
+          description: form.value.description
+        };
+  
+        this.service.createMaterial(material).subscribe(
+          data => {
+            console.log(data);
+            this.showSuccessPopup = true;
+            setTimeout(() => {
+              this.showSuccessPopup = false;
+            }, 3000);
+          },
+          error => {
+            console.error(error);
+          }
+        );
       },
       error => {
         console.error(error);
@@ -51,12 +70,10 @@ export class CreateMaterialComponent {
     );
   }
 
-  // Function to close the success popup
   closeSuccessPopup() {
     this.showSuccessPopup = false;
   }
 
-  // Function to navigate back to the 'material' route
   backHome() {
     this.router.navigate(['/material']);
   }
