@@ -1,23 +1,22 @@
   <h1>Brands</h1>
 
-  <!-- Search form -->
-  <section class="mt-5">
-      <div class="row justify-content-center">
-          <div class="col-lg-6 col-md-8">
-              <h4>Search by Name</h4>
-              <form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="form-length">
-                  <div class="form-group">
-                      <label for="searchDescription">Enter Name:</label>
-                      <input class="form-control" id="searchDescription" type="text" formControlName="description"
-                          required />
-                  </div>
-                  <div class="d-flex justify-content-center">
-                      <button type="submit" class="btn btn-primary">Search</button>
-                      <button type="button" class="btn btn-secondary ml-2" (click)="resetSearch()">Reset</button>
-                  </div>
-              </form>
+<!-- Search form -->
+<section class="mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <h4>Search by Name</h4>
+        <form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="form-length">
+          <div class="form-group">
+            <label for="searchByName">Enter Name:</label>
+            <input class="form-control" id="searchbyName" type="text" formControlName="name" required />
           </div>
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="button" class="btn btn-secondary ml-2" (click)="resetSearch()">Reset</button>
+          </div>
+        </form>
       </div>
+    </div>
   </section>
 
   <!-- Create a New Brand form -->
@@ -73,7 +72,7 @@
 <section>
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <div class="col mb-5" *ngFor="let brand of brandList">
+            <div class="col mb-5" *ngFor="let brand of filteredBrandList">
                 <div class="card h-100">
                     <!-- Brand details-->
                     <div class="card-body p-4">
