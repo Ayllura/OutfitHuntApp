@@ -7,10 +7,9 @@
       <form [formGroup]="searchForm" (ngSubmit)="searchByDescription()">
         <div class="form-group">
           <label for="searchDescription">Enter Description:</label>
-          <input class="form-control" id="searchDescription" type="text" formControlName="description" required />
+          <input class="form-control" id="searchDescription" type="text" (input)="searchByDescription()" formControlName="description" required />
         </div>
         <div class="d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary">Search</button>
           <button type="button" class="btn btn-secondary ml-2" (click)="resetSearch()">Reset</button>
         </div>
       </form>
