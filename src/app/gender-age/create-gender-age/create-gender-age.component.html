@@ -11,9 +11,12 @@
                 name="genderAgeId" ngModel>
         </div>
         <div class="form-group mt-3">
-            <label for="inputGender">Gender *</label>
-            <input type="text" class="form-control" id="inputGender" placeholder="Options: F for Female, M for Male or U for Unisex" ng-required="inputGender"
-                name="gender" ngModel>
+            <label for="inputGender">Gender *</label><br/>
+            <select class="form-control" id="inputGender" name="gender" ng-required="inputGender" ngModel>
+                <option value="F">Female</option>
+                <option value="M">Male</option>
+                <option value="U">Unisex</option>
+              </select>
         </div>
         <div class="form-group mt-3">
             <label for="inputAge">Age Interval *</label>
