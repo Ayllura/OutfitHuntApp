@@ -24,7 +24,22 @@ export class ViewGenderAgeComponent implements OnInit {
     this.service.getGenderAge(this.genderAgeId).subscribe(data => {
       this.genderAgeId = data['genderAgeId'];
       this.gender = data['gender'];
-      this.age = data['age'];    
+      this.age = data['age'];
+      
+      switch (this.gender) {
+        case "F":
+          this.gender = "Female"
+          break;
+        case "M":
+          this.gender = "Male"
+          break;
+        case "U":
+          this.gender = "Unisex"
+          break;
+        default:
+          console.log("Invalid statement")
+          break;
+      }
     });
   }
 } 
