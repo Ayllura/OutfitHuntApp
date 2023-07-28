@@ -30,7 +30,10 @@ div.contentWrapper {
 
 .itemGrid div:first-child {
     background-color: #E5FDFF;
-    padding: 10% 10% 10% 10%;
+    padding: 5% 5% 5% 5%;
+    border-style: solid;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 
@@ -47,7 +50,11 @@ div.contentWrapper {
     text-align: center;
     color: #E5FDFF;
     background-color: #00455c;
-    padding: 2% 10% 1% 10%;
-    font-size: 75%;
-    font-weight: 500;
+    padding: 1% 10% 1% 10%;
+    font-size: 100%;
+    font-weight: 700;
+    border-style: solid;
+    border-color: #00455c;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
