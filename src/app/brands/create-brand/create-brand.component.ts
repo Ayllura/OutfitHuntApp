@@ -32,7 +32,7 @@ export class CreateBrandComponent implements OnInit {
     };
 
     this.service.createBrand(brand).subscribe(data => {
-      console.log('Brand added successfully:', data);
+      alert('Brand added successfully');
     });
   }
 }

@@ -37,52 +37,69 @@ export class BrandsComponent implements OnInit {
     });
   }
 
-// Add a class-level variable to store the last clicked shopId
-private lastClickedBrandId: number | null = null;
+  // Add a class-level variable to store the last clicked shopId
+  private lastClickedBrandId: number | null = null;
 
-deleteBrands(brandId: number): void {
-  if (this.lastClickedBrandId === brandId) {
-    // If the user clicked the same delete button twice, show a warning alert
-    if (confirm('Are you sure you want to delete this Brand?')) {
-      // Proceed with shop deletion if the user confirmed
-      this.service.deleteBrands(brandId).subscribe(
-        () => {
-          alert('Product Type deleted successfully');
-          this.brandList = this.brandList.filter(brand => brand.brandId !== brandId);
-          // Reset the lastClickedShopId to null for the next deletion
-          this.lastClickedBrandId = null;
-        },
-        error => {
-          alert('Error deleting Brand.');
-          // Reset the lastClickedShopId in case of an error to allow reconfirmation
-          this.lastClickedBrandId = null;
-        }
-      );
+  deleteBrands(brandId: number): void {
+    if (this.lastClickedBrandId === brandId) {
+      // If the user clicked the same delete button twice, show a warning alert
+      if (confirm('Are you sure you want to delete this Brand?')) {
+        // Proceed with shop deletion if the user confirmed
+        this.service.deleteBrands(brandId).subscribe(
+          () => {
+            alert('Product Type deleted successfully');
+            this.brandList = this.brandList.filter(brand => brand.brandId !== brandId);
+            // Reset the lastClickedShopId to null for the next deletion
+            this.lastClickedBrandId = null;
+          },
+          error => {
+            alert('Error deleting Brand.');
+            // Reset the lastClickedShopId in case of an error to allow reconfirmation
+            this.lastClickedBrandId = null;
+          }
+        );
+      } else {
+        // If the user cancels the deletion, reset the lastClickedShopId
+        this.lastClickedBrandId = null;
+      }
     } else {
-      // If the user cancels the deletion, reset the lastClickedShopId
-      this.lastClickedBrandId = null;
-    }
-  } else {
-    // If the user clicked a different delete button, set the lastClickedShopId to the current shopId
-    this.lastClickedBrandId = brandId;
-    // Show the confirmation alert
-    if (confirm('Are you sure you want to delete this Brand? Press OK to confirm.')) {
-      // Do not proceed with deletion at this point
-      return;
+      // If the user clicked a different delete button, set the lastClickedShopId to the current shopId
+      this.lastClickedBrandId = brandId;
+      // Show the confirmation alert
+      if (confirm('Are you sure you want to delete this Brand? Press OK to confirm.')) {
+        // Do not proceed with deletion at this point
+        return;
+      }
     }
   }
-}
 
   createNewBrand(): void {
+    // Check if brandId is valid and name is not empty
     if (this.newBrand.brandId <= 0 || this.newBrand.name === '') {
-      // Show an alert if brandId is invalid or name is empty
       alert('Brand ID must be greater than 0 and Name cannot be empty.');
       return;
     }
-    this.service.createBrand(this.newBrand).subscribe(data => {
-      this.brandList.push(data);
-      this.newBrand = { brandId: 0, name: '' };
-    });
+
+    // Check if the brand already exists in brandList
+    const isBrandRepeated = this.brandList.some(brand => brand.brandId === this.newBrand.brandId || brand.name === this.newBrand.name);
+    if (isBrandRepeated) {
+      alert('This brand already exists.');
+      return;
+    }
+
+    // If the brand is not repeated, proceed with creating the new brand
+    this.service.createBrand(this.newBrand).subscribe(
+      data => {
+        // Successful insert
+        this.brandList.push(data);
+        this.newBrand = { brandId: 0, name: '' };
+        alert('Brand inserted successfully.');
+      },
+      error => {
+        // Error handling for unsuccessful insert
+        alert('Error inserting the brand.');
+      }
+    );
   }
 
   updateBrand() {
@@ -96,9 +113,16 @@ deleteBrands(brandId: number): void {
       return;
     }
 
+    const newName = this.updateBrandForm.value.name;
+    const existingBrand = this.brandList.find(brand => brand.name === newName && brand.brandId !== brandId);
+    if (existingBrand) {
+      alert('A brand with the same name already exists. Please choose a different name.');
+      return;
+    }
+
     const brand: Brands = {
       brandId: brandId,
-      name: this.updateBrandForm.value.name
+      name: newName
     };
 
     this.service.updateBrands(brandId, brand).subscribe(

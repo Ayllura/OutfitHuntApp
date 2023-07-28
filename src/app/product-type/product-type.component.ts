@@ -73,45 +73,66 @@ deleteProductType(typeId: number): void {
   }
 }
 
-  createNewProductType(): void {
-    if (this.newProductType.typeId <= 0 || this.newProductType.description === '') {
-        // Show an alert if brandId is invalid or name is empty
-        alert('Product Type ID must be greater than 0 and Name cannot be empty.');
-        return;
-      }
-    this.service.createProductType(this.newProductType).subscribe(data => {
-      this.productTypeList.push(data);
-      this.newProductType = { typeId: 0, description: '' };
-    });
+createNewProductType(): void {
+  if (this.newProductType.typeId <= 0 || this.newProductType.description === '') {
+    alert('Product Type ID must be greater than 0 and Description cannot be empty.');
+    return;
   }
+
+  const newDescription = this.newProductType.description;
+  const existingProductType = this.productTypeList.find(
+    type => type.description === newDescription && type.typeId !== this.newProductType.typeId
+  );
+
+  if (existingProductType) {
+    alert('A product type with the same description already exists. Please choose a different description.');
+    return;
+  }
+
+  this.service.createProductType(this.newProductType).subscribe(data => {
+    this.productTypeList.push(data);
+    this.newProductType = { typeId: 0, description: '' };
+    alert('Product Type created successfully.');
+  });
+}
 
   updateProductType() {
     if (this.updateProductTypeForm.invalid) {
+      alert('Invalid form data. Please fill all required fields.');
       return;
     }
-
+  
     const typeId = this.updateProductTypeForm.value.typeId;
     if (isNaN(typeId)) {
-      console.error('Invalid typeId:', typeId);
+      alert('Invalid typeId: ' + typeId);
       return;
-
     }
-
+  
+    const newDescription = this.updateProductTypeForm.value.description;
+    const existingProductType = this.productTypeList.find(
+      type => type.description === newDescription && type.typeId !== typeId
+    );
+  
+    if (existingProductType) {
+      alert('A product type with the same description already exists. Please choose a different description.');
+      return;
+    }
+  
     const productType: ProductType = {
       typeId: typeId,
-      description: this.updateProductTypeForm.value.description
+      description: newDescription
     };
-
+  
     this.service.updateProductType(typeId, productType).subscribe(
       data => {
-        console.log('Product Type updated successfully');
+        alert('Product Type updated successfully');
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this.router.navigate(['/productType']);
         });
       },
       error => {
-        console.error('Error updating product type:', error);
+        alert('Error updating product type: ' + error);
       }
     );
-  }
+  }  
 }
