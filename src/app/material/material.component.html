@@ -27,14 +27,14 @@
       <div class="col mb-5">
         <div class="card h-100">
           <div class="card-body p-4">
-            <div class="text-center">
+            <div class="text-center" id="text">
               <!-- Product name-->
               <h5 class="fw-bolder">{{selectedMaterial.materialId}} -
                 {{selectedMaterial.description}}</h5>
             </div>
           </div>
           <!-- Product actions-->
-          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div class="card-footer p-4 pt-0">
             <div class="text-center"><a class="btn btn-outline-dark mt-auto"
                 [href]="'material/view-material/' + selectedMaterial.materialId"><svg xmlns="http://www.w3.org/2000/svg"
                   width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
@@ -74,7 +74,7 @@
             </div>
           </div>
           <!-- Product actions-->
-          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div class="card-footer p-4 pt-0">
             <div class="text-center"><a class="btn btn-outline-dark mt-auto"
                 [href]="'material/view-material/' + material.materialId"><svg xmlns="http://www.w3.org/2000/svg"
                   width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
