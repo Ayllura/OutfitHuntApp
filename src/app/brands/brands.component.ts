@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BrandsService } from './brands.service';
 import { Brands } from './brands';
-import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -12,9 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class BrandsComponent implements OnInit {
   brandList: Brands[] = [];
+  filteredBrandList: Brands[] = [];
   newBrand: Brands = { brandId: 0, name: '' };
   updateBrandForm: FormGroup;
-  brandId: number = 0;
+  searchForm: FormGroup;
 
   constructor(
     private service: BrandsService,
@@ -23,6 +23,11 @@ export class BrandsComponent implements OnInit {
   ) {
     this.updateBrandForm = this.fb.group({
       brandId: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      name: ['', Validators.required]
+    });
+
+    // Initialize the search form
+    this.searchForm = this.fb.group({
       name: ['', Validators.required]
     });
   }
@@ -34,6 +39,8 @@ export class BrandsComponent implements OnInit {
   getBrandList(): void {
     this.service.getAllBrands().subscribe(data => {
       this.brandList = data;
+      // Initially, set filteredBrandList to the complete brandList
+      this.filteredBrandList = [...this.brandList];
     });
   }
 
@@ -136,5 +143,29 @@ export class BrandsComponent implements OnInit {
         alert('Error updating brand.');
       }
     );
+  }
+   // Add a new method for searching by name
+   searchByName(): void {
+    if (this.searchForm.invalid) {
+      alert('Invalid search form data. Please enter a name to search.');
+      return;
+    }
+
+    const nameToSearch = this.searchForm.get('name')?.value;
+    // Filter the brandList based on the name input
+    this.filteredBrandList = this.brandList.filter(
+      brand => brand.name.toLowerCase().includes(nameToSearch.toLowerCase())
+    );
+
+    // Check if there are no results
+    if (this.filteredBrandList.length === 0) {
+      alert('No brands found for the entered name.');
+    }
+  }
+
+  resetSearch(): void {
+    this.searchForm.reset();
+    // Reset the filteredBrandList to show all brands again
+    this.filteredBrandList = [...this.brandList];
   }
 }
