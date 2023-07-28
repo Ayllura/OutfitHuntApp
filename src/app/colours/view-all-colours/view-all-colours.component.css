@@ -2,6 +2,35 @@
     margin: 5%;
 }
 
+.btn-primary {
+    color: #E5FDFF;
+    background-color: #00455c;
+}
+
+.btn-primary:hover {
+    background-color: #0096bb;
+}
+
+.btn-outline-dark {
+    background-color: #E5FDFF;
+    ;
+}
+
+.btn-outline-dark:hover {
+    background-color: #0096bb;
+}
+
 .fw-bolder {
-    color:#00455c;
+    color: #00455c;
+}
+
+.card {
+    border: #00455c;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+}
+
+.card-footer {
+    background-color: #00455c;
 }

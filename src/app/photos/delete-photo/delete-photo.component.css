@@ -2,8 +2,17 @@
     margin: 5%;
 }
 
+.btn-primary {
+    color: #E5FDFF;
+    background-color: #00455c;
+}
+
+.btn-primary:hover {
+    background-color: #0096bb;
+}
+
 .fw-bolder {
-    color:#00455c;
+    color: #00455c;
 }
 
 h2 {
@@ -19,10 +28,20 @@ h2 {
     border-color: maroon;
 }
 
-.btn {
+.btn-danger {
     display: block;
     padding-inline: 30%;
-    margin-left: 5%;
+    margin: 5%;
+    background-color: #00455c;
+    border: 2px;
+    border-style: solid;
+    border-color: #00455c;
+}
+
+.btn-danger:hover {
+    display: block;
+    padding-inline: 30%;
+    margin: 5%;
     background-color: maroon;
     border: 2px;
     border-style: solid;

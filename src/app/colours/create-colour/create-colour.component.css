@@ -2,6 +2,19 @@
     margin: 5%;
 }
 
+.btn-primary {
+    color: #E5FDFF;
+    background-color: #00455c;
+}
+
+.btn-primary:hover {
+    background-color: #0096bb;
+}
+
+.btn-primary.mt-3{
+    margin:5%;
+}
+
 .fw-bolder {
-    color:#00455c;
+    color: #00455c;
 }

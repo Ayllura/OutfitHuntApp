@@ -1,13 +1,8 @@
-<h4 class="display-6 fw-bolder" id="title">GenderAge</h4>
-<nav aria-label="Page navigation">
-    <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link" href="./genderAge">
-                Back
-            </a>
-        </li>
-    </ul>
-</nav>
+<h4 class="display-6 fw-bolder" id="title">GenderAge<br />
+    <a class="btn btn-primary" href="./genderAge" role="button">
+        Back
+    </a>
+</h4>
 <form (submit)="createGenderAge(createGenderAgeForm)" #createGenderAgeForm="ngForm">
     <div class="form-row">
         <div class="form-group mt-3">
@@ -17,12 +12,12 @@
         </div>
         <div class="form-group mt-3">
             <label for="inputGender">Gender *</label>
-            <input type="text" class="form-control" id="inputGender" placeholder="M, F or U" ng-required="inputGender"
+            <input type="text" class="form-control" id="inputGender" placeholder="Options: F for Female, M for Male or U for Unisex" ng-required="inputGender"
                 name="gender" ngModel>
         </div>
         <div class="form-group mt-3">
             <label for="inputAge">Age Interval *</label>
-            <input type="text" class="form-control" id="inputAge" placeholder="Age" ng-required="inputAge" name="age"
+            <input type="text" class="form-control" id="inputAge" placeholder="Options: 0-2, 2-8, 8-15, over 16" ng-required="inputAge" name="age"
                 ngModel>
         </div>
         <button type="submit" class="btn btn-primary mt-3">Create</button>

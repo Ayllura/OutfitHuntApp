@@ -1,22 +1,18 @@
-<h4 class="display-6 fw-bolder" id="title" >Photos</h4>
-<nav aria-label="Page navigation">
-    <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link" href="./photos/view-all-photos">
-                Back
-            </a>
-        </li>
-    </ul>
-</nav>
+<h4 class="display-6 fw-bolder" id="title">Photos <br />
+    <a class="btn btn-primary" href="./photos/view-all-photos" role="button">
+        Back
+    </a>
+</h4>
 <div class="contentWrapper">
     <div class="itemGrid">
         <div class="item">
             <a href="{{link}}" alt="Outfit Photo">
-            <img src='{{link}}'  style='width: 100%; height: auto; max-width: 100%'/></a>
+                <img src='{{link}}' style='width: auto; height: auto; max-width: 100%' /></a>
         </div>
-        <div class="itemDetails">
-            Photo ID:<br />
-            {{photoId}}
+        <div class="itemID">
+            Photo ID: {{photoId}}
+        </div>
+        <div class="itemLink">
+            URL:<br />{{link}}
         </div>
     </div>
-</div>
